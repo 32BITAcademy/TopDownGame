@@ -150,6 +150,7 @@
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
