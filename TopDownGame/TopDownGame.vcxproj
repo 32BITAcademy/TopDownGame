@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="BasicStructs.h" />
     <ClInclude Include="Block.h" />
     <ClInclude Include="Decoration.h" />
     <ClInclude Include="DrawableObject.h" />

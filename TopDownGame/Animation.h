@@ -18,5 +18,5 @@ public:
 	~Animation();
 
 	void Update(float dt);
-	void Draw(sf::RenderWindow win, int x, int y);
+	void Draw(sf::RenderWindow &win, int x, int y);
 };

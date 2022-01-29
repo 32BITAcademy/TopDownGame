@@ -34,7 +34,7 @@ void Animation::Update(float dt)
 	}
 }
 
-void Animation::Draw(sf::RenderWindow win, int x, int y)
+void Animation::Draw(sf::RenderWindow &win, int x, int y)
 {
 	sp->setTextureRect(frames[cur_frame]);
 	sp->setPosition(x, y);

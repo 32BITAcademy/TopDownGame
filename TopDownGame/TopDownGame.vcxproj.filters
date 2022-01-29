@@ -68,6 +68,9 @@
     <ClInclude Include="Animation.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="BasicStructs.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
