@@ -3,22 +3,16 @@
 
 Animation::Animation()
 {
-	sp = NULL;
+	sprite = NULL;
 	cur_time = 0;
 	cur_frame = 0;
 	timeout = 1;
 	frame_count = 5;
 }
 
-Animation::Animation(std::string key)
-{
-	ResourceManager* rm = ResourceManager::GetInstance();
-	sp = new sf::Sprite(*rm->GetTexture(key));
-}
-
 Animation::~Animation()
 {
-	delete sp;
+	delete sprite;
 	delete[] frames;
 }
 
@@ -36,7 +30,7 @@ void Animation::Update(float dt)
 
 void Animation::Draw(sf::RenderWindow &win, int x, int y)
 {
-	sp->setTextureRect(frames[cur_frame]);
-	sp->setPosition(x, y);
-	win.draw(*sp);
+	sprite->setTextureRect(frames[cur_frame]);
+	sprite->setPosition(x, y);
+	win.draw(*sprite);
 }
