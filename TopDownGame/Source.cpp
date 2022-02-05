@@ -2,6 +2,7 @@
 #include<SFML\Graphics.hpp>
 #include "ResourceManager.h"
 #include "DrawableObject.h"
+#include "GameManager.h"
 
 using namespace sf;
 
@@ -13,12 +14,13 @@ int main()
     float timef;
 
     ResourceManager* rm = ResourceManager::GetInstance();
-
     rm->LoadAnimations("Resources\\topdownanimations.txt");
 
-    DrawableObject e1("Explosion1", { 200, 20, 256, 256 });
-    DrawableObject e2("Explosion2", { 500, 20, 256, 256 });
-    DrawableObject e3("Explosion3", { 800, 20, 256, 256 });
+    GameManager* gm = GameManager::GetInstance();
+
+    gm->AddObject(new DrawableObject("Explosion1", { 200, 20, 128, 512 }));
+    gm->AddObject(new DrawableObject("Explosion2", { 500, 20, 256, 256 }));
+    gm->AddObject(new DrawableObject("Explosion3", { 800, 20, 128, 128 }));
 
     while (window.isOpen())
     {
@@ -30,17 +32,10 @@ int main()
         }
 
         Time dt = clock.restart();
-
-        e1.Update(dt);
-        e2.Update(dt);
-        e3.Update(dt);
+        gm->Update(dt);
 
         window.clear(Color(100,100,100));
-
-        e1.Draw(window);
-        e2.Draw(window);
-        e3.Draw(window);
-        
+        gm->Draw(window);
         window.display();
     }
 

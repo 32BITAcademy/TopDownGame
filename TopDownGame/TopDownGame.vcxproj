@@ -149,6 +149,7 @@
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Decoration.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
@@ -161,13 +162,16 @@
     <ClInclude Include="Block.h" />
     <ClInclude Include="Decoration.h" />
     <ClInclude Include="DrawableObject.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="MSG.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

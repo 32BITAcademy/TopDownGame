@@ -3,7 +3,7 @@
 
 Animation::Animation()
 {
-	sprite = NULL;
+	sprite = nullptr;
 	cur_time = 0;
 	cur_frame = 0;
 	timeout = 1;
@@ -33,4 +33,15 @@ void Animation::Draw(sf::RenderWindow &win, int x, int y)
 	sprite->setTextureRect(frames[cur_frame]);
 	sprite->setPosition(x, y);
 	win.draw(*sprite);
+}
+
+void Animation::SetScale(float scalex, float scaley)
+{
+	sprite->setScale({ scalex, scaley });
+}
+
+void Animation::GetFrameSize(int& width, int& height)
+{
+	width = frames[0].width;
+	height = frames[0].height;
 }

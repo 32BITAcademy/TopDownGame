@@ -14,7 +14,7 @@
 using namespace std;
 using namespace sf;
 
-ResourceManager* ResourceManager::instance = NULL;
+ResourceManager* ResourceManager::instance = nullptr;
 
 ResourceManager::~ResourceManager()
 {
@@ -23,15 +23,16 @@ ResourceManager::~ResourceManager()
 		delete t.second;
 	}
 	TextureDic.clear();
+	ResourceManager::instance = nullptr;
 }
 
 ResourceManager* ResourceManager::GetInstance()
 {
-	if (ResourceManager::instance == NULL)
+	if (ResourceManager::instance == nullptr)
 	{
 		ResourceManager::instance = new ResourceManager();
 	}
-	return instance;
+	return ResourceManager::instance;
 }
 
 void ResourceManager::LoadAnimations(std::string path_to_animation_file)
@@ -108,6 +109,6 @@ void ResourceManager::LoadNewTexture(std::string key, std::string path)
 sf::Texture* ResourceManager::GetTexture(std::string key)
 {
 	if (TextureDic.find(key) == TextureDic.end())
-		return NULL;
+		return nullptr;
 	return TextureDic[key];
 }
