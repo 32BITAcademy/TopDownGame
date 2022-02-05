@@ -3,6 +3,7 @@
 #include "ResourceManager.h"
 #include "DrawableObject.h"
 #include "GameManager.h"
+#include "PlayerTank.h"
 
 using namespace sf;
 
@@ -17,10 +18,11 @@ int main()
     rm->LoadAnimations("Resources\\topdownanimations.txt");
 
     GameManager* gm = GameManager::GetInstance();
+    gm->AddObject(new PlayerTank());
 
-    gm->AddObject(new DrawableObject("Explosion1", { 200, 20, 128, 512 }));
+    /*gm->AddObject(new DrawableObject("Explosion1", { 200, 20, 128, 512 }));
     gm->AddObject(new DrawableObject("Explosion2", { 500, 20, 256, 256 }));
-    gm->AddObject(new DrawableObject("Explosion3", { 800, 20, 128, 128 }));
+    gm->AddObject(new DrawableObject("Explosion3", { 800, 20, 128, 128 }));*/
 
     while (window.isOpen())
     {
@@ -33,6 +35,7 @@ int main()
 
         Time dt = clock.restart();
         gm->Update(dt);
+        gm->ReadMsgs();
 
         window.clear(Color(100,100,100));
         gm->Draw(window);

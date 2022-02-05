@@ -4,7 +4,7 @@
 class DrawableObject;
 
 enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT };
-enum ObjectType { OBJ_MANAGER, OBJ_GAMEOBJECT };
+enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT };
 
 struct MSG
 {
