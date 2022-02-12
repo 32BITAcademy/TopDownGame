@@ -3,7 +3,7 @@
 
 class DrawableObject;
 
-enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT };
+enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT,MSG_MOVEBACK };
 enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT };
 
 struct MSG
@@ -23,6 +23,10 @@ struct MSG
 			sf::Vector2f dir;
 			ObjectType who_to_create;
 		} shoot;
+		struct
+		{
+			sf::FloatRect move_here;
+		}moveback;
 	};
 
 	MSG() {}
