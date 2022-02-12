@@ -5,12 +5,14 @@
 #include "GameManager.h"
 #include "PlayerTank.h"
 #include "AI_Tank.h"
+#include"Block.h"
 #include "Bullet.h"
 
 using namespace sf;
 
 int main()
 {
+    srand(time(nullptr));
     RenderWindow window(VideoMode(1300, 600), "TopDownGame");
     Clock clock;
     Time time = clock.getElapsedTime();
@@ -22,7 +24,17 @@ int main()
     GameManager* gm = GameManager::GetInstance();
     gm->AddObject(new PlayerTank());
     gm->AddObject(new AI_Tank());
-
+   //gm->AddObject(new Block("brick_wall", { 0,0,40,30 }));
+    for (int i = 0; i < 1300; i += 40)
+    {   
+        gm->AddObject(new Block("brick_wall", { float(i),0,40,30 }));
+        gm->AddObject(new Block("brick_wall", { float(i),570,40,30 }));
+    }
+    for (int i = 0; i < 800; i += 30)
+    {
+        gm->AddObject(new Block("brick_wall", { 0,float(i),40,30 }));
+        gm->AddObject(new Block("brick_wall", { 1260,float(i),40,30 }));
+    }
     /*gm->AddObject(new DrawableObject("Explosion1", { 200, 20, 128, 512 }));
     gm->AddObject(new DrawableObject("Explosion2", { 500, 20, 256, 256 }));
     gm->AddObject(new DrawableObject("Explosion3", { 800, 20, 128, 128 }));*/
