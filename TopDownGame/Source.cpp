@@ -10,6 +10,7 @@ using namespace sf;
 
 int main()
 {
+    srand(time(nullptr));
     RenderWindow window(VideoMode(1300, 600), "TopDownGame");
     Clock clock;
     Time time = clock.getElapsedTime();
