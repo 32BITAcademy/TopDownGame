@@ -3,6 +3,8 @@
 
 class DrawableObject;
 
+enum DamageType;
+
 enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT,MSG_MOVEBACK, MSG_DEALDMG };
 enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET };
 
@@ -25,12 +27,13 @@ struct MSG
 		} shoot;
 		struct {
 			float dmg;
+			DamageType dmg_type;
 			DrawableObject* who_deals_dmg, * who_takes_dmg;
 		} dealdmg;
 		struct
 		{
 			sf::FloatRect move_here;
-		}moveback;
+		} moveback;
 	};
 
 	MSG() {}
