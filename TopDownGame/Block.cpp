@@ -1,9 +1,7 @@
 #include "Block.h"
 
-Block::Block(std::string anim_name, sf::FloatRect pos) : GameObject(pos,99999.f)
+Block::Block(std::string anim_name, sf::FloatRect pos) : GameObject(anim_name, pos,99999.f)
 {
-	InitAnimation(anim_name, pos);
-
 }
 
 Block::~Block()

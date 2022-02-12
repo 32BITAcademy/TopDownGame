@@ -6,9 +6,8 @@ using namespace std;
 
 enum Direction { NONE, RIGHT, DOWN, LEFT, UP };
 
-AI_Tank::AI_Tank(): time_left_to_move(0), Unit(50.f, { 400, 150 ,150,165 }, 100.f)
+AI_Tank::AI_Tank(): time_left_to_move(0), Unit("AI_Tank1", 50.f, { 400, 150 ,150,165 }, 100.f)
 {
-	InitAnimation("AI_Tank1", { 0,0,150,165 });
 }
 
 AI_Tank::~AI_Tank()

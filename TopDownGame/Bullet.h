@@ -12,8 +12,7 @@ private:
 
 public:
     Bullet() : direction(DOWN), time_left(5000.f), Projectile() {}
-    Bullet(Unit* Owner, float damage, DamageType damageType, float timeleft, BulletDirections dir) :
-        time_left(timeleft), direction(dir), Projectile(Owner, damage, damageType) {}
+    Bullet::Bullet(Unit* Owner, float damage, DamageType damageType, BulletDirections dir, sf::FloatRect pos);
 
     ~Bullet();
 
