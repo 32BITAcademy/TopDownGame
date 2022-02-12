@@ -38,4 +38,8 @@ void AI_Tank::Update(sf::Time dt)
 void AI_Tank::SendMsg(MSG& m)
 {
 	if (m.sender == this) return;
+	if (m.type == MSG_MOVEBACK)
+	{
+		m.moveback.move_here=hit_box;
+	}
 }
