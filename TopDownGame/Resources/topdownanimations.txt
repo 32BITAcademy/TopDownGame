@@ -1,4 +1,13 @@
 {
+	"AI_Tank1" : {
+		"file" : "Resources\\images\\tanks.png",
+		"timeout" : 0.04,
+		"framecount" : 1,
+		"frames" : [
+			[0,240,150,165]
+		]
+	},	
+
 	"GreenTank1" : {
 		"file" : "Resources\\images\\tanks.png",
 		"timeout" : 0.04,

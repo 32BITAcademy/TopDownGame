@@ -4,6 +4,7 @@
 #include "DrawableObject.h"
 #include "GameManager.h"
 #include "PlayerTank.h"
+#include "AI_Tank.h"
 
 using namespace sf;
 
@@ -19,6 +20,7 @@ int main()
 
     GameManager* gm = GameManager::GetInstance();
     gm->AddObject(new PlayerTank());
+    gm->AddObject(new AI_Tank());
 
     /*gm->AddObject(new DrawableObject("Explosion1", { 200, 20, 128, 512 }));
     gm->AddObject(new DrawableObject("Explosion2", { 500, 20, 256, 256 }));
