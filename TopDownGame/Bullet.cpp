@@ -30,6 +30,7 @@ void Bullet::SendMsg(MSG& m)
 		if (CheckCollision((GameObject*)m.sender))
 		{
 			m.dealdmg.dmg = dmg;
+			m.dealdmg.dmg_type = dmgType;
 			m.dealdmg.who_deals_dmg = (DrawableObject*)owner;
 			m.dealdmg.who_takes_dmg = m.sender;
 		}
