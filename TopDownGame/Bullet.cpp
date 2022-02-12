@@ -2,8 +2,16 @@
 
 Bullet::~Bullet()
 {
+}
+
+Bullet::Bullet()
+{
 	InitAnimation("Bullet", { 100,225,660,228 });
-	Projectile::~Projectile();
+}
+
+Bullet::Bullet(Unit* Owner, float damage, DamageType damageType, float timeleft, BulletDirections dir)
+{
+	InitAnimation("Bullet", { 100,225,660,228 });
 }
 
 void Bullet::Update(sf::Time dt)
@@ -27,7 +35,7 @@ void Bullet::SendMsg(MSG& m)
 	if (m.sender == this) return;
 	if (m.type == MSG_MOVEMENT)
 	{
-		if (CheckCollision((GameObject*)m.sender))
+		if (CheckCollision((GameObject*)m.sender) && m.sender != owner)
 		{
 			m.dealdmg.dmg = dmg;
 			m.dealdmg.dmg_type = dmgType;
