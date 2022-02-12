@@ -3,9 +3,8 @@
 
 using namespace sf;
 
-PlayerTank::PlayerTank() : Unit(200.f, { 100,100,150,200 }, 100.f)
+PlayerTank::PlayerTank() : Unit("GreenTank1", 200.f, { 100,100,150,200 }, 100.f)
 {
-	InitAnimation("GreenTank1", { 100,100,150,200 });
 }
 
 PlayerTank::~PlayerTank()

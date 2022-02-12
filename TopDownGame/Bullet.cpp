@@ -4,8 +4,6 @@ enum Directions { RIGHT, DOWN, LEFT, UP };
 
 Bullet::~Bullet()
 {
-	InitAnimation("Bullet", { 100,225,660,228 });
-	Projectile::~Projectile();
 }
 
 void Bullet::Update(sf::Time dt)

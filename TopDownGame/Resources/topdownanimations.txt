@@ -244,5 +244,13 @@
 		"frames" : [
 			[0,0,40,30]
 		]
+	},
+	"background" : {
+		"file" : "Resources\\images\\background.png",
+		"timeout" : 0.04,
+		"framecount" : 1,
+		"frames" : [
+			[0,0,500,500]
+		]
 	}
 }

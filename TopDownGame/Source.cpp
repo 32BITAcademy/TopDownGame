@@ -7,7 +7,7 @@
 #include "AI_Tank.h"
 #include"Block.h"
 #include "Bullet.h"
-
+#include "Decoration.h"
 using namespace sf;
 
 int main()
@@ -22,6 +22,7 @@ int main()
     rm->LoadAnimations("Resources\\topdownanimations.txt");
 
     GameManager* gm = GameManager::GetInstance();
+    gm->AddObject(new Decoration("background",{0,0,1300,600}));
     gm->AddObject(new PlayerTank());
     gm->AddObject(new AI_Tank());
    //gm->AddObject(new Block("brick_wall", { 0,0,40,30 }));
@@ -30,7 +31,7 @@ int main()
         gm->AddObject(new Block("brick_wall", { float(i),0,40,30 }));
         gm->AddObject(new Block("brick_wall", { float(i),570,40,30 }));
     }
-    for (int i = 0; i < 800; i += 30)
+    for (int i = 0; i < 600; i += 30)
     {
         gm->AddObject(new Block("brick_wall", { 0,float(i),40,30 }));
         gm->AddObject(new Block("brick_wall", { 1260,float(i),40,30 }));

@@ -9,7 +9,7 @@ protected:
 
 public:
     GameObject() : DrawableObject(), hit_box({ 0,0,1,1 }), speed({ 0,0 }), hp(0), maxhp(0) { }
-    GameObject(sf::FloatRect hb, float mhp, sf::Vector2f sp = {0, 0}) : DrawableObject(), hit_box(hb), speed(sp), hp(mhp), maxhp(mhp) { }
+    GameObject(std::string anim_name, sf::FloatRect hb, float mhp, sf::Vector2f sp = {0, 0}) : DrawableObject(anim_name,hb), hit_box(hb), speed(sp), hp(mhp), maxhp(mhp) { }
     virtual ~GameObject();
 
     virtual void Update(sf::Time dt);
