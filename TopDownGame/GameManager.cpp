@@ -39,7 +39,7 @@ void GameManager::ReadMsgs()
 
 		if (m.type == MSG_SHOOT)
 		{
-			AddObject(new Bullet());
+			AddObject(new Bullet(m.shoot.));
 			continue;
 		}
 

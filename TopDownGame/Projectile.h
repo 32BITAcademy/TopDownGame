@@ -17,8 +17,8 @@ public:
        
     Projectile() :
         Unit(), owner(NULL), dmg(1), dmgType(standart) {}
-    Projectile(Unit* Owner, float damage, DamageType damageType) :
-        Unit(), owner(Owner), dmg(damage), dmgType(damageType) {}
+    Projectile(Unit* Owner, float damage, DamageType damageType, float maxsp, std::string anim_name, sf::FloatRect pos) :
+        Unit(anim_name, maxsp, pos, 1), owner(Owner), dmg(damage), dmgType(damageType) {}
 
     ~Projectile();
 

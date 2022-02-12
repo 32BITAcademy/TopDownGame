@@ -4,14 +4,13 @@ Bullet::~Bullet()
 {
 }
 
-Bullet::Bullet()
+Bullet::Bullet() 
 {
-	InitAnimation("Bullet", { 100,225,660,228 });
 }
 
-Bullet::Bullet(Unit* Owner, float damage, DamageType damageType, float timeleft, BulletDirections dir)
+Bullet::Bullet(Unit* Owner, float damage, DamageType damageType, BulletDirections dir, sf::FloatRect pos) :
+	direction(dir), Projectile(Owner, damage, damageType, 1000, "Bullet", pos)
 {
-	InitAnimation("Bullet", { 100,225,660,228 });
 }
 
 void Bullet::Update(sf::Time dt)
