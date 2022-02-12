@@ -35,8 +35,8 @@ void PlayerTank::Update(sf::Time dt)
 void PlayerTank::SendMsg(MSG& m)
 {
 	if (m.sender == this) return;
-	/*if (m.type == MSG_MOVEMENT)
+	if (m.type == MSG_MOVEBACK)
 	{
-		std::cout << m.movement.new_pos.left << ", " << m.movement.new_pos.top << "\n";
-	}*/
+		hit_box= m.moveback.move_here ;
+	}
 }
