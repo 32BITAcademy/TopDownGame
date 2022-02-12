@@ -19,6 +19,13 @@ void AI_Tank::Update(sf::Time dt)
 {
 	if (time_left_to_move <= 0)
 	{
+		MSG m;
+		m.type = MSG_SHOOT;
+		m.sender = this;
+		m.sender_type = type;
+		m.shoot.dir = speed;
+		m.shoot.who_to_create = OBJ_BULLET;
+		m.shoot.pos = { hit_box.left + hit_box.width / 2,hit_box.top + hit_box.height / 2 };
 		time_left_to_move = rand() % 2501 + 500;
 		Direction chosen_dir = Direction(rand() % 5);
 		switch (chosen_dir)
@@ -42,4 +49,5 @@ void AI_Tank::SendMsg(MSG& m)
 	{
 		hit_box = m.moveback.move_here;
 	}
+	
 }
