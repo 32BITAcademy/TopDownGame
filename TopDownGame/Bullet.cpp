@@ -1,7 +1,5 @@
 #include "Bullet.h"
 
-enum Directions { RIGHT, DOWN, LEFT, UP };
-
 Bullet::~Bullet()
 {
 	InitAnimation("Bullet", { 100,225,660,228 });
