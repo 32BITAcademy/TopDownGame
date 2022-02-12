@@ -228,5 +228,13 @@
 			[1536,1792,256,256],
 			[1792,1792,256,256]
 		]
+	},
+	"brick_wall" : {
+		"file" : "Resources\\images\\brick_wall.png",
+		"timeout" : 0.04,
+		"framecount" : 1,
+		"frames" : [
+			[0,0,40,30]
+		]
 	}
 }
