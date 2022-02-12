@@ -30,7 +30,7 @@ struct MSG
 		struct
 		{
 			sf::FloatRect move_here;
-		}moveback;
+		} moveback;
 	};
 
 	MSG() {}

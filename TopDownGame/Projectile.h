@@ -1,26 +1,24 @@
 #pragma once
-#include "GameObject.h"
-
-class Unit;
+#include "Unit.h"
 
 enum DamageType { standart, fire };
 
 class Projectile :
-    public GameObject
+    public Unit
 {
-private:
-    float dmg;
+protected:
 
     DamageType dmgType;
 
-protected:
+    float dmg;
     Unit* owner;
+
 public:
        
     Projectile() :
-        GameObject(), owner(NULL), dmg(1), dmgType(standart) {}
+        Unit(), owner(NULL), dmg(1), dmgType(standart) {}
     Projectile(Unit* Owner, float damage, DamageType damageType) :
-        GameObject(), owner(Owner), dmg(damage), dmgType(damageType) {}
+        Unit(), owner(Owner), dmg(damage), dmgType(damageType) {}
 
     ~Projectile();
 

@@ -10,14 +10,16 @@ Bullet::~Bullet()
 
 void Bullet::Update(sf::Time dt)
 {
-
 	if (time_left > 0)
 	{
-		Directions dir = DOWN;
-		speed = { 1.f, 0 };
+		switch (direction) {
+		case RIGHT: speed = { maxspeed, 0 }; break;
+		case DOWN: speed = { 0, maxspeed }; break;
+		case LEFT: speed = { -maxspeed, 0 }; break;
+		case UP: speed = { 0, -maxspeed }; break;
+		}
 		time_left -= dt.asMilliseconds();
 	}
-
 
 	Projectile::Update(dt);
 }
@@ -29,7 +31,7 @@ void Bullet::SendMsg(MSG& m)
 	{
 		if (CheckCollision((GameObject*)m.sender))
 		{
-			m.dealdmg.dmg = 10.f;
+			m.dealdmg.dmg = dmg;
 			m.dealdmg.who_deals_dmg = (DrawableObject*)owner;
 			m.dealdmg.who_takes_dmg = m.sender;
 		}
