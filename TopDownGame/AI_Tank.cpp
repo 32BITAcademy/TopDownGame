@@ -1,11 +1,10 @@
 #include "AI_Tank.h"
 #include <iostream>
+
 using namespace sf;
-#define LEFT 20
-#define RIGHT 15
-#define UP 5
-#define DOWN 10
 using namespace std;
+
+enum Directions {NONE, RIGHT, DOWN, LEFT, UP};
 
 AI_Tank::AI_Tank(): Unit(50.f, { 0,0,150,165 }, 100.f)
 {

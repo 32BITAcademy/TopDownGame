@@ -16,6 +16,14 @@
 			[0,0,150,200]
 		]
 	},
+	"Bullet" : {
+		"file" : "Resources\\images\\bullet.png",
+		"timeout" : 0.04,
+		"framecount" : 1,
+		"frames" : [
+			[100,225,660,228]
+		]
+	},	
 	"Explosion1" : {
 		"file" : "Resources\\images\\explosion_1.png",
 		"timeout" : 0.04,

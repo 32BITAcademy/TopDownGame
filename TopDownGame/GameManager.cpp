@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "Bullet.h"
 
 GameManager* GameManager::instance = nullptr;
 
@@ -35,6 +36,12 @@ void GameManager::ReadMsgs()
 	{
 		m = msgs.front();
 		msgs.pop_front();
+
+		if (m.type == MSG_SHOOT)
+		{
+			AddObject(new Bullet());
+			continue;
+		}
 
 		for (auto x : objects)
 			x->SendMsg(m);

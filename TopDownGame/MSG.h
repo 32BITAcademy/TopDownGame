@@ -3,8 +3,8 @@
 
 class DrawableObject;
 
-enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT };
-enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT };
+enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT, MSG_DEALDMG };
+enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET };
 
 struct MSG
 {
@@ -23,6 +23,10 @@ struct MSG
 			sf::Vector2f dir;
 			ObjectType who_to_create;
 		} shoot;
+		struct {
+			float dmg;
+			DrawableObject* who_deals_dmg, * who_takes_dmg;
+		} dealdmg;
 	};
 
 	MSG() {}

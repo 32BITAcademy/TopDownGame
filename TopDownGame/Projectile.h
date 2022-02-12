@@ -9,11 +9,12 @@ class Projectile :
     public GameObject
 {
 private:
-    Unit* owner;
     float dmg;
 
     DamageType dmgType;
 
+protected:
+    Unit* owner;
 public:
        
     Projectile() :

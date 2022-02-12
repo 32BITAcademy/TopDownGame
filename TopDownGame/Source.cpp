@@ -5,6 +5,7 @@
 #include "GameManager.h"
 #include "PlayerTank.h"
 #include "AI_Tank.h"
+#include "Bullet.h"
 
 using namespace sf;
 
@@ -33,6 +34,8 @@ int main()
         {
             if (event.type == Event::Closed)
                 window.close();
+            if (event.type == Keyboard::isKeyPressed(Keyboard::Space))
+                gm->AddObject(new Bullet());
         }
 
         Time dt = clock.restart();
