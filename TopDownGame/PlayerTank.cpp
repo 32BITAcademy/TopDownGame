@@ -3,9 +3,9 @@
 
 using namespace sf;
 
-PlayerTank::PlayerTank() : Unit(200.f, { 0,0,150,200 }, 100.f)
+PlayerTank::PlayerTank() : Unit(200.f, { 100,100,150,200 }, 100.f)
 {
-	InitAnimation("GreenTank1", { 0,0,150,200 });
+	InitAnimation("GreenTank1", { 100,100,150,200 });
 }
 
 PlayerTank::~PlayerTank()
@@ -35,8 +35,8 @@ void PlayerTank::Update(sf::Time dt)
 void PlayerTank::SendMsg(MSG& m)
 {
 	if (m.sender == this) return;
-	/*if (m.type == MSG_MOVEMENT)
+	if (m.type == MSG_MOVEBACK)
 	{
-		std::cout << m.movement.new_pos.left << ", " << m.movement.new_pos.top << "\n";
-	}*/
+		hit_box = m.moveback.move_here;
+	}
 }
