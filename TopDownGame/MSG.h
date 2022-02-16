@@ -7,6 +7,7 @@ enum DamageType;
 
 enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT,MSG_MOVEBACK, MSG_DEALDMG };
 enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET };
+enum Direction { NONE, RIGHT, DOWN, LEFT, UP };
 
 struct MSG
 {
@@ -16,6 +17,7 @@ struct MSG
 	union {
 		struct {
 			sf::FloatRect old_pos, new_pos;
+			Direction dir;
 		} movement;
 		struct {
 			DrawableObject* who_dies, * killer;

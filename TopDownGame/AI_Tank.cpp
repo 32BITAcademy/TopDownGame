@@ -4,8 +4,6 @@
 using namespace sf;
 using namespace std;
 
-enum Direction { NONE, RIGHT, DOWN, LEFT, UP };
-
 AI_Tank::AI_Tank(): time_left_to_move(0), Unit("AI_Tank1", 50.f, { 400, 150 ,150,165 }, 100.f)
 {
 }
