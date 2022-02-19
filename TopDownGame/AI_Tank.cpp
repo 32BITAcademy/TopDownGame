@@ -52,5 +52,23 @@ void AI_Tank::SendMsg(MSG& m)
 	{
 		hit_box = m.moveback.move_here;
 	}
+	if (m.type == MSG_DEALDMG)
+	{
+		if (m.dealdmg.who_takes_dmg == this)
+		{
+			hp -= m.dealdmg.dmg;
+			
+			if (hp <= 0)
+			{
+				MSG m1;
+				m1.type = MSG_DEATH;
+				m1.sender = this;
+				m1.death.killer = m.dealdmg.who_deals_dmg;
+				m1.death.who_dies = this;
+				GameManager::GetInstance()->SendMsg(m1);
+			}
+		}
+		
+	}
 	
 }
