@@ -5,7 +5,7 @@ class DrawableObject;
 
 enum DamageType;
 
-enum Explosiontype{EXP_1,EXP_2,EXP_3};
+enum Explosiontype{EXP_SMALL,EXP_NORMAL,EXP_BIG};
 enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT,MSG_MOVEBACK, MSG_DEALDMG,MSG_EXPLOSION };
 enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET,OBJ_EXPLOSION };
 enum Direction { NONE, RIGHT, DOWN, LEFT, UP };
