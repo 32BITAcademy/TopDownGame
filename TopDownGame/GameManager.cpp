@@ -71,6 +71,7 @@ void GameManager::ReadMsgs()
 	while (!deathnote.empty())
 	{
 		objects.remove(deathnote.front());
+		delete deathnote.front();
 		deathnote.pop_front();
 	}
 }
