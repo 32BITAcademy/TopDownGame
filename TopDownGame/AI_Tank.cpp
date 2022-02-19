@@ -1,4 +1,5 @@
 #include "AI_Tank.h"
+#include "GameManager.h"
 #include <iostream>
 
 using namespace sf;
@@ -16,13 +17,18 @@ void AI_Tank::Update(sf::Time dt)
 {
 	if (time_left_to_move <= 0)
 	{
-		MSG m;
-		m.type = MSG_SHOOT;
-		m.sender = this;
-		m.sender_type = type;
-		m.shoot.dir = speed;
-		m.shoot.who_to_create = OBJ_BULLET;
-		m.shoot.pos = { hit_box.left + hit_box.width / 2,hit_box.top + hit_box.height / 2 };
+		if (speed.x != 0 or speed.y != 0)
+		{
+			MSG m;
+			m.type = MSG_SHOOT;
+			m.sender = this;
+			m.sender_type = type;
+			m.shoot.dir = { speed.x * 3, speed.y * 3 };
+			m.shoot.who_to_create = OBJ_BULLET;
+			m.shoot.pos = { hit_box.left + hit_box.width / 2,hit_box.top + hit_box.height / 2 };
+			GameManager::GetInstance()->SendMsg(m);
+		}
+
 		time_left_to_move = rand() % 2501 + 500;
 		Direction chosen_dir = Direction(rand() % 5);
 		switch (chosen_dir)

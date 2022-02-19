@@ -91,10 +91,13 @@ void ResourceManager::LoadAnimations(std::string path_to_animation_file)
 Animation* ResourceManager::GetAnimationCopy(std::string key)
 {
 	Animation *a = new Animation(), *b = AnimationDic[key];
-	a->frames = b->frames;
 	a->frame_count = b->frame_count;
 	a->timeout = b->timeout;
 	a->sprite = new sf::Sprite(*TextureDic[key]);
+	
+	a->frames = new sf::IntRect[a->frame_count];
+	for (int i = 0; i < a->frame_count; i++)
+		a->frames[i] = b->frames[i];
 
 	return a;
 }

@@ -1,10 +1,10 @@
 #pragma once
 #include "Unit.h"
 
-enum DamageType { standart, fire };
+enum DamageType { DT_STANDARD, DT_FIRE };
 
 class Projectile :
-    public Unit
+    public GameObject
 {
 protected:
 
@@ -16,9 +16,9 @@ protected:
 public:
        
     Projectile() :
-        Unit(), owner(NULL), dmg(1), dmgType(standart) {}
-    Projectile(Unit* Owner, float damage, DamageType damageType, float maxsp, std::string anim_name, sf::FloatRect pos) :
-        Unit(anim_name, maxsp, pos, 1), owner(Owner), dmg(damage), dmgType(damageType) {}
+        GameObject(), owner(NULL), dmg(1), dmgType(DT_STANDARD) {}
+    Projectile(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, std::string anim_name, sf::FloatRect pos) :
+        GameObject(anim_name, pos, 1, speed), owner(Owner), dmg(damage), dmgType(damageType) {}
 
     ~Projectile();
 

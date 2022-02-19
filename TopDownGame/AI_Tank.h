@@ -12,6 +12,5 @@ public:
 
 	void Update(sf::Time dt);
 	void SendMsg(MSG& m);
-
 };
 

@@ -7,5 +7,5 @@ Projectile::~Projectile()
 
 void Projectile::Update(sf::Time dt)
 {
-	Unit::Update(dt);
+	GameObject::Update(dt);
 }

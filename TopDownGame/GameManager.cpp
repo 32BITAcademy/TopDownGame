@@ -39,7 +39,19 @@ void GameManager::ReadMsgs()
 
 		if (m.type == MSG_SHOOT)
 		{
-			AddObject(new Bullet(m.shoot.));
+			switch (m.shoot.who_to_create)
+			{
+			case OBJ_BULLET:
+				AddObject(new Bullet((Unit*)m.sender, 10, DT_STANDARD, m.shoot.dir, m.shoot.pos ));
+				break;
+			}
+			continue;
+		}
+
+		if (m.type == MSG_DEATH)
+		{
+			objects.remove(m.death.who_dies);
+			delete m.death.who_dies;
 			continue;
 		}
 

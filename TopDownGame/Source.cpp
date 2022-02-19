@@ -40,6 +40,8 @@ int main()
     gm->AddObject(new DrawableObject("Explosion2", { 500, 20, 256, 256 }));
     gm->AddObject(new DrawableObject("Explosion3", { 800, 20, 128, 128 }));*/
 
+    //gm->AddObject(new Bullet(nullptr, 10, DT_STANDARD, { 10, 0 }, { 650, 300 }));
+
     while (window.isOpen())
     {
         Event event;
