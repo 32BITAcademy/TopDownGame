@@ -53,7 +53,7 @@ void GameManager::ReadMsgs()
 
 		if (m.type == MSG_EXPLOSION)
 		{
-			AddObject(new Explosion({ m.expose.pos.x,m.expose.pos.y,20,20}));
+			AddObject(new Explosion({ m.explode.pos.x,m.explode.pos.y,20,20}));
 			continue;
 		}
 

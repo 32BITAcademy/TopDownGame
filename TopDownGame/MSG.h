@@ -41,7 +41,7 @@ struct MSG
 		{
 			sf::Vector2f pos;
 			Explosiontype type_of_explosion;
-		}expose;
+		}explode;
 	};
 
 	MSG() {}
