@@ -1,6 +1,11 @@
 #include "Bullet.h"
 #include "GameManager.h"
 
+Unit* Bullet::GetOwner()
+{
+	return owner;
+}
+
 Bullet::~Bullet()
 {
 }
