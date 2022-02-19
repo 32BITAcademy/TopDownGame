@@ -24,7 +24,7 @@ void Block::SendMsg(MSG& m)
 			case UP:
 				mes.moveback.move_here.left = m.movement.new_pos.left;
 				mes.moveback.move_here.width = m.movement.new_pos.width;
-				mes.moveback.move_here.top = hit_box.top + m.movement.new_pos.height;
+				mes.moveback.move_here.top = hit_box.top + hit_box.height;
 				mes.moveback.move_here.height = m.movement.new_pos.height;
 				break;
 			case DOWN:
@@ -34,13 +34,13 @@ void Block::SendMsg(MSG& m)
 				mes.moveback.move_here.height = m.movement.new_pos.height;
 				break;
 			case LEFT:
-				mes.moveback.move_here.left = hit_box.left + m.movement.new_pos.width;
+				mes.moveback.move_here.left = hit_box.left + hit_box.width;
 				mes.moveback.move_here.width = m.movement.new_pos.width;
 				mes.moveback.move_here.top = m.movement.new_pos.top;
 				mes.moveback.move_here.height = m.movement.new_pos.height;
 				break;
 			case RIGHT:
-				mes.moveback.move_here.left = m.movement.new_pos.left - m.movement.new_pos.width;
+				mes.moveback.move_here.left = hit_box.left-m.movement.new_pos.width;
 				mes.moveback.move_here.width = m.movement.new_pos.width;
 				mes.moveback.move_here.top = m.movement.new_pos.top;
 				mes.moveback.move_here.height = m.movement.new_pos.height;
