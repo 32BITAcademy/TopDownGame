@@ -32,6 +32,8 @@ void GameManager::Update(sf::Time dt)
 void GameManager::ReadMsgs()
 {
 	MSG m;
+	std::list<DrawableObject*> deathnote;
+
 	while (!msgs.empty())
 	{
 		m = msgs.front();
@@ -42,7 +44,7 @@ void GameManager::ReadMsgs()
 			switch (m.shoot.who_to_create)
 			{
 			case OBJ_BULLET:
-				AddObject(new Bullet((Unit*)m.sender, 10, DT_STANDARD, m.shoot.dir, m.shoot.pos ));
+				AddObject(new Bullet((Unit*)m.sender, 10, DT_STANDARD, m.shoot.dir, m.shoot.pos));
 				break;
 			}
 			continue;
@@ -50,13 +52,19 @@ void GameManager::ReadMsgs()
 
 		if (m.type == MSG_DEATH)
 		{
-			objects.remove(m.death.who_dies);
-			delete m.death.who_dies;
+			deathnote.push_back(m.death.who_dies);
 			continue;
 		}
 
 		for (auto x : objects)
 			x->SendMsg(m);
+	}
+
+	deathnote.unique();
+	while (!deathnote.empty())
+	{
+		objects.remove(deathnote.front());
+		deathnote.pop_front();
 	}
 }
 
