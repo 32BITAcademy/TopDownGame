@@ -2,7 +2,6 @@
 #include "GameManager.h"
 Explosion::Explosion(sf::FloatRect pos): Decoration("Explosion1",pos)
 {
-	expose_type = EXP_1;
 }
 
 Explosion::~Explosion()
