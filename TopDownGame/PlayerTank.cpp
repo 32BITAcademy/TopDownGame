@@ -1,5 +1,6 @@
 #include "PlayerTank.h"
 #include "GameManager.h"
+#include "Bullet.h"
 #include <iostream>
 
 
@@ -34,8 +35,6 @@ void PlayerTank::Update(sf::Time dt)
 	
 	if (Keyboard::isKeyPressed(Keyboard::Space) and curr_cd_of_bul<=0)
 	{
-		
-
 		if (speed.x != 0 or speed.y != 0)
 		{
 			MSG m;
@@ -77,5 +76,49 @@ void PlayerTank::SendMsg(MSG& m)
 			}
 		}
 
+	}
+	if (m.type == MSG_MOVEMENT)
+	{
+		if (m.sender_type == OBJ_BULLET)
+		{
+			if (((Bullet*)m.sender)->GetOwner() == this)
+				return;
+		}
+		if (m.movement.new_pos.intersects(hit_box))
+		{
+			MSG mes;
+			mes.type = MSG_MOVEBACK;
+			mes.sender = this;
+			switch (m.movement.dir)
+			{
+			case UP:
+				mes.moveback.move_here.left = m.movement.new_pos.left;
+				mes.moveback.move_here.width = m.movement.new_pos.width;
+				mes.moveback.move_here.top = hit_box.top + hit_box.height;
+				mes.moveback.move_here.height = m.movement.new_pos.height;
+				break;
+			case DOWN:
+				mes.moveback.move_here.left = m.movement.new_pos.left;
+				mes.moveback.move_here.width = m.movement.new_pos.width;
+				mes.moveback.move_here.top = hit_box.top - m.movement.new_pos.height;
+				mes.moveback.move_here.height = m.movement.new_pos.height;
+				break;
+			case LEFT:
+				mes.moveback.move_here.left = hit_box.left + hit_box.width;
+				mes.moveback.move_here.width = m.movement.new_pos.width;
+				mes.moveback.move_here.top = m.movement.new_pos.top;
+				mes.moveback.move_here.height = m.movement.new_pos.height;
+				break;
+			case RIGHT:
+				mes.moveback.move_here.left = hit_box.left - m.movement.new_pos.width;
+				mes.moveback.move_here.width = m.movement.new_pos.width;
+				mes.moveback.move_here.top = m.movement.new_pos.top;
+				mes.moveback.move_here.height = m.movement.new_pos.height;
+				break;
+			case NONE:
+				mes.moveback.move_here = m.movement.old_pos;
+			}
+			m.sender->SendMsg(mes);
+		}
 	}
 }
