@@ -76,9 +76,9 @@ void PlayerTank::SendMsg(MSG& m)
 
 				m1.type = MSG_EXPLOSION;
 				m1.sender = this;
-				m1.expose.pos.x = hit_box.left;
-				m1.expose.pos.y = hit_box.top;
-				m1.expose.type_of_explosion = EXP_2;
+				m1.explode.pos.x = hit_box.left;
+				m1.explode.pos.y = hit_box.top;
+				m1.explode.type_of_explosion = EXP_BIG;
 				GameManager::GetInstance()->SendMsg(m1);
 
 
