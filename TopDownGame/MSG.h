@@ -5,8 +5,9 @@ class DrawableObject;
 
 enum DamageType;
 
-enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT,MSG_MOVEBACK, MSG_DEALDMG };
-enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET };
+enum Explosiontype{EXP_1,EXP_2,EXP_3};
+enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT,MSG_MOVEBACK, MSG_DEALDMG,MSG_EXPLOSION };
+enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET,OBJ_EXPLOSION };
 enum Direction { NONE, RIGHT, DOWN, LEFT, UP };
 
 struct MSG
@@ -36,6 +37,11 @@ struct MSG
 		{
 			sf::FloatRect move_here;
 		} moveback;
+		struct
+		{
+			sf::Vector2f pos;
+			Explosiontype type_of_explosion;
+		}expose;
 	};
 
 	MSG() {}

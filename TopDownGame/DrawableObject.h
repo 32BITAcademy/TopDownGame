@@ -8,17 +8,17 @@ class DrawableObject
 private:
 	Animation *animation;
 	sf::Vector2f scale;
-	sf::FloatRect draw_box;
 	void UpdateAnim(sf::Time dt);
 
 protected:
+	sf::FloatRect draw_box;
 	ObjectType type;
 
 public:
 	DrawableObject() : type(OBJ_UNDEFINED), animation(nullptr), scale({ 1.0f, 1.0f }), draw_box({ 0, 0, 1, 1 }) {}
 	DrawableObject(std::string anim_name, sf::FloatRect db);
 	virtual ~DrawableObject();
-
+	int GetAnimationIteration() { return animation->GetIterat(); };
 	void InitAnimation(std::string anim_name, sf::FloatRect db);
 	sf::FloatRect GetDrawBox();
 	void SetDrawBox(sf::FloatRect db);

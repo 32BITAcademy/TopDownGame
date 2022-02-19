@@ -16,10 +16,11 @@ private:
 	sf::IntRect* frames;
 	float timeout;
 	float cur_time;
+	int iterations = 0;
 public:
 
 	~Animation();
-
+	int GetIterat() { return iterations; };
 	void Update(float dt);
 	void Draw(sf::RenderWindow &win, int x, int y);
 	void SetScale(float scalex, float scaley);
