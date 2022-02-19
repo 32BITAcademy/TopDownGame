@@ -46,6 +46,7 @@ void Bullet::SendMsg(MSG& m)
 
 			d.type = MSG_DEALDMG;
 			d.sender = this;
+			d.sender_type = OBJ_BULLET;
 			d.dealdmg.dmg = dmg;
 			d.dealdmg.dmg_type = dmgType;
 			d.dealdmg.who_deals_dmg = (DrawableObject*)owner;
@@ -69,6 +70,7 @@ void Bullet::SendMsg(MSG& m)
 
 			d.type = MSG_DEALDMG;
 			d.sender = this;
+			d.sender_type = OBJ_BULLET;
 			d.dealdmg.dmg = dmg;
 			d.dealdmg.dmg_type = dmgType;
 			d.dealdmg.who_deals_dmg = (DrawableObject*)owner;
@@ -83,6 +85,14 @@ void Bullet::SendMsg(MSG& m)
 
 			GameManager::GetInstance()->SendMsg(d);
 			
+			d.type = MSG_EXPLOSION;
+			d.sender = this;
+			d.sender_type = OBJ_BULLET;
+			d.explode.pos.x = hit_box.left;
+			d.explode.pos.y = hit_box.top;
+			d.explode.type_of_explosion = EXP_1;
+
+			GameManager::GetInstance()->SendMsg(d);
 		}
 	}
 }
