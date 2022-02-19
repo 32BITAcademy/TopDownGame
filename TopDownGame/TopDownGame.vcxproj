@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="AI_Tank.cpp" />
+    <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="PlayerTank.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Block.cpp" />
@@ -162,6 +163,7 @@
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="AI_Tank.h" />
+    <ClInclude Include="Explosion.h" />
     <ClInclude Include="PlayerTank.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BasicStructs.h" />

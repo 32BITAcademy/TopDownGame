@@ -25,6 +25,7 @@ void Animation::Update(float dt)
 	{
 		cur_frame = (cur_frame + 1) % frame_count;
 		cur_time -= timeout;
+		if (cur_frame == 0) iterations++;
 	}
 }
 
