@@ -90,7 +90,7 @@ void Bullet::SendMsg(MSG& m)
 			d.sender_type = OBJ_BULLET;
 			d.explode.pos.x = hit_box.left;
 			d.explode.pos.y = hit_box.top;
-			d.explode.type_of_explosion = EXP_1;
+			d.explode.type_of_explosion = EXP_SMALL;
 
 			GameManager::GetInstance()->SendMsg(d);
 		}
