@@ -37,10 +37,47 @@ void Bullet::SendMsg(MSG& m)
 	{
 		if (CheckCollision((GameObject*)m.sender) && m.sender != owner)
 		{
-			m.dealdmg.dmg = dmg;
-			m.dealdmg.dmg_type = dmgType;
-			m.dealdmg.who_deals_dmg = (DrawableObject*)owner;
-			m.dealdmg.who_takes_dmg = m.sender;
+			MSG d;
+
+			d.type = MSG_DEALDMG;
+			d.sender = this;
+			d.dealdmg.dmg = dmg;
+			d.dealdmg.dmg_type = dmgType;
+			d.dealdmg.who_deals_dmg = (DrawableObject*)owner;
+			d.dealdmg.who_takes_dmg = m.sender;
+
+			GameManager::GetInstance()->SendMsg(d);
+
+			d.type = MSG_DEATH;
+			d.sender = this;
+			d.death.killer = this;
+			d.death.who_dies = this;
+
+			GameManager::GetInstance()->SendMsg(d);
+		}
+	}
+	if (m.type == MSG_MOVEBACK)
+	{
+		if (CheckCollision((GameObject*)m.sender) && m.sender != owner)
+		{
+			MSG d;
+
+			d.type = MSG_DEALDMG;
+			d.sender = this;
+			d.dealdmg.dmg = dmg;
+			d.dealdmg.dmg_type = dmgType;
+			d.dealdmg.who_deals_dmg = (DrawableObject*)owner;
+			d.dealdmg.who_takes_dmg = m.sender;
+
+			GameManager::GetInstance()->SendMsg(d);
+
+			d.type = MSG_DEATH;
+			d.sender = this;
+			d.death.killer = this;
+			d.death.who_dies = this;
+
+			GameManager::GetInstance()->SendMsg(d);
+			
 		}
 	}
 }
