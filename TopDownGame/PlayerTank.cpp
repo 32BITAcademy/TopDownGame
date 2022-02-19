@@ -6,7 +6,7 @@
 
 using namespace sf;
 
-PlayerTank::PlayerTank() : Unit("GreenTank1", 200.f, { 100,100,150,200 }, 100.f)
+PlayerTank::PlayerTank() : Unit("GreenTank1", 200.f, { 100,100,150,200 }, 20.f)
 {
 }
 
@@ -73,6 +73,16 @@ void PlayerTank::SendMsg(MSG& m)
 				m1.death.killer = m.dealdmg.who_deals_dmg;
 				m1.death.who_dies = this;
 				GameManager::GetInstance()->SendMsg(m1);
+
+				m1.type = MSG_EXPLOSION;
+				m1.sender = this;
+				m1.expose.pos.x = hit_box.left;
+				m1.expose.pos.y = hit_box.top;
+				m1.expose.type_of_explosion = EXP_2;
+				GameManager::GetInstance()->SendMsg(m1);
+
+
+
 			}
 		}
 
@@ -121,4 +131,5 @@ void PlayerTank::SendMsg(MSG& m)
 			m.sender->SendMsg(mes);
 		}
 	}
+
 }

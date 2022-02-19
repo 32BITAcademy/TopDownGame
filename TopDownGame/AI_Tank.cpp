@@ -5,7 +5,7 @@
 using namespace sf;
 using namespace std;
 
-AI_Tank::AI_Tank(): time_left_to_move(0), Unit("AI_Tank1", 50.f, { 400, 150 ,150,165 }, 100.f)
+AI_Tank::AI_Tank(): time_left_to_move(0), Unit("AI_Tank1", 50.f, { 400, 150 ,150,165 }, 20.f)
 {
 }
 
@@ -65,6 +65,13 @@ void AI_Tank::SendMsg(MSG& m)
 				m1.sender = this;
 				m1.death.killer = m.dealdmg.who_deals_dmg;
 				m1.death.who_dies = this;
+				GameManager::GetInstance()->SendMsg(m1);
+				
+				m1.type = MSG_EXPLOSION;
+				m1.sender = this;
+				m1.expose.pos.x = hit_box.left;
+				m1.expose.pos.y = hit_box.top;
+				m1.expose.type_of_explosion = EXP_2;
 				GameManager::GetInstance()->SendMsg(m1);
 			}
 		}
