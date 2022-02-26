@@ -7,6 +7,49 @@ GameObject::~GameObject()
 
 }
 
+void GameObject::Rotate(bool cw)
+{
+    if (cw)
+    {
+        switch (direction) {
+        case UP: direction = RIGHT; break;
+        case RIGHT: direction = DOWN; break;
+        case DOWN: direction = LEFT; break;
+        case LEFT: direction = UP; break;
+        }
+    } else {
+        switch (direction) {
+        case UP: direction = LEFT; break;
+        case RIGHT: direction = UP; break;
+        case DOWN: direction = RIGHT; break;
+        case LEFT: direction = DOWN; break;
+        }
+    }
+
+    switch (direction) {
+    case DOWN: _set_dir_angle(0); break;
+    case LEFT: _set_dir_angle(90); break;
+    case UP: _set_dir_angle(180); break;
+    case RIGHT: _set_dir_angle(270); break;
+    }
+
+    sf::FloatRect old_box = hit_box;
+    sf::Vector2f c = { old_box.left + old_box.width / 2, old_box.top + old_box.height / 2 };
+    hit_box.width = old_box.height;
+    hit_box.height = old_box.width;
+    hit_box.left = c.x - hit_box.width / 2;
+    hit_box.top = c.y - hit_box.height / 2;
+
+    MSG m;
+    m.type = MSG_MOVEMENT;
+    m.sender = this;
+    m.movement.dir = direction;
+    m.movement.old_pos = old_box;
+    m.movement.new_pos = hit_box;
+
+    SendMsg(m);
+}
+
 void GameObject::Update(sf::Time dt)
 {
     DrawableObject::Update(dt);
@@ -47,6 +90,7 @@ void GameObject::Update(sf::Time dt)
         r.left = hit_box.left;
         r.top = hit_box.top;
         SetDrawBox(r);
+
     }
 }
 

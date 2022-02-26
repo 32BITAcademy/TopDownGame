@@ -21,6 +21,9 @@ int main()
     ResourceManager* rm = ResourceManager::GetInstance();
     rm->LoadAnimations("Resources\\topdownanimations.txt");
 
+    Animation* a = rm->GetAnimationCopy("AI_Tank1");
+    
+
     GameManager* gm = GameManager::GetInstance();
     gm->AddObject(new Decoration("background",{0,0,1300,600}));
     gm->AddObject(new PlayerTank());
@@ -42,6 +45,7 @@ int main()
 
     //gm->AddObject(new Bullet(nullptr, 10, DT_STANDARD, { 10, 0 }, { 650, 300 }));
 
+    int t = 0;
     while (window.isOpen())
     {
         Event event;
@@ -58,7 +62,24 @@ int main()
         gm->ReadMsgs();
 
         window.clear(Color(100,100,100));
-        gm->Draw(window);
+        //gm->Draw(window);
+
+        t += dt.asMilliseconds();
+
+        if (t < 1000)
+            a->Draw(window, 0, 0, 0);
+        else if ( t < 2000)
+            a->Draw(window, 0, 0, 90);
+        else if (t < 3000)
+            a->Draw(window, 0, 0, 180);
+        else if (t < 4000)
+            a->Draw(window, 0, 0, 270);
+        else
+        {
+            a->Draw(window, 0, 0, 270);
+            t = 0;
+        }
+
         window.display();
     }
 

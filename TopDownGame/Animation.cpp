@@ -29,8 +29,10 @@ void Animation::Update(float dt)
 	}
 }
 
-void Animation::Draw(sf::RenderWindow &win, int x, int y)
+void Animation::Draw(sf::RenderWindow &win, int x, int y, int dir_angle)
 {
+	sprite->setOrigin({ frames[cur_frame].width / 2.f, frames[cur_frame].height / 2.f });
+	sprite->setRotation(dir_angle);
 	sprite->setTextureRect(frames[cur_frame]);
 	sprite->setPosition(x, y);
 	win.draw(*sprite);

@@ -22,7 +22,7 @@ public:
 	~Animation();
 	int GetIterat() { return iterations; };
 	void Update(float dt);
-	void Draw(sf::RenderWindow &win, int x, int y);
+	void Draw(sf::RenderWindow &win, int x, int y, int dir_angle);
 	void SetScale(float scalex, float scaley);
 	void GetFrameSize(int &width, int &height);
 

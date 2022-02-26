@@ -9,15 +9,19 @@ private:
 	Animation *animation;
 	sf::Vector2f scale;
 	void UpdateAnim(sf::Time dt);
+	float dir_angle;
 
 protected:
 	sf::FloatRect draw_box;
 	ObjectType type;
+	void _set_dir_angle(float a);
+	Direction direction;
 
 public:
-	DrawableObject() : type(OBJ_UNDEFINED), animation(nullptr), scale({ 1.0f, 1.0f }), draw_box({ 0, 0, 1, 1 }) {}
+	DrawableObject() : type(OBJ_UNDEFINED), animation(nullptr), scale({ 1.0f, 1.0f }), draw_box({ 0, 0, 1, 1 }), dir_angle(0) {}
 	DrawableObject(std::string anim_name, sf::FloatRect db);
 	virtual ~DrawableObject();
+	float GetDirAngle();
 	int GetAnimationIteration() { return animation->GetIterat(); };
 	void InitAnimation(std::string anim_name, sf::FloatRect db);
 	sf::FloatRect GetDrawBox();
