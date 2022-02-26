@@ -6,7 +6,7 @@
 
 using namespace sf;
 
-PlayerTank::PlayerTank() : Unit("GreenTank1", 200.f, { 100,100,150,200 }, 20.f)
+PlayerTank::PlayerTank() : Unit("GreenTank1", 200.f, { 100,100,150,200 }, 2000.f)
 {
 }
 
@@ -45,10 +45,12 @@ void PlayerTank::Update(sf::Time dt)
 			m.shoot.who_to_create = OBJ_BULLET;
 			m.shoot.pos = { hit_box.left + hit_box.width / 2,hit_box.top + hit_box.height / 2 };
 			GameManager::GetInstance()->SendMsg(m);
+			curr_cd_of_bul = max_cd_of_bul;
 		}
-		curr_cd_of_bul = max_cd_of_bul;
 	}
-	curr_cd_of_bul -= dt.asMilliseconds();
+	if (Keyboard::isKeyPressed(Keyboard::Enter))
+		std::cout << hit_box.left << " " << hit_box.top << std::endl;
+	curr_cd_of_bul -= dt.asSeconds();
 	Unit::Update(dt);
 }
 
@@ -99,34 +101,39 @@ void PlayerTank::SendMsg(MSG& m)
 			MSG mes;
 			mes.type = MSG_MOVEBACK;
 			mes.sender = this;
-			switch (m.movement.dir)
+			sf::FloatRect intersection;
+			m.movement.new_pos.intersects(hit_box, intersection);
+			if (abs((intersection.top + intersection.height / 2) - (hit_box.top + hit_box.height / 2)) >
+				abs((intersection.left + intersection.width / 2) - (hit_box.left + hit_box.width / 2)))
 			{
-			case UP:
-				mes.moveback.move_here.left = m.movement.new_pos.left;
-				mes.moveback.move_here.width = m.movement.new_pos.width;
-				mes.moveback.move_here.top = hit_box.top + hit_box.height;
-				mes.moveback.move_here.height = m.movement.new_pos.height;
-				break;
-			case DOWN:
-				mes.moveback.move_here.left = m.movement.new_pos.left;
-				mes.moveback.move_here.width = m.movement.new_pos.width;
-				mes.moveback.move_here.top = hit_box.top - m.movement.new_pos.height;
-				mes.moveback.move_here.height = m.movement.new_pos.height;
-				break;
-			case LEFT:
-				mes.moveback.move_here.left = hit_box.left + hit_box.width;
-				mes.moveback.move_here.width = m.movement.new_pos.width;
-				mes.moveback.move_here.top = m.movement.new_pos.top;
-				mes.moveback.move_here.height = m.movement.new_pos.height;
-				break;
-			case RIGHT:
+				if ((intersection.top + intersection.height / 2) - (hit_box.top + hit_box.height / 2) < 0)
+				{
+					mes.moveback.move_here.left = m.movement.new_pos.left;
+					mes.moveback.move_here.width = m.movement.new_pos.width;
+					mes.moveback.move_here.top = hit_box.top - m.movement.new_pos.height;
+					mes.moveback.move_here.height = m.movement.new_pos.height;
+				}
+				else
+				{
+					mes.moveback.move_here.left = m.movement.new_pos.left;
+					mes.moveback.move_here.width = m.movement.new_pos.width;
+					mes.moveback.move_here.top = hit_box.top + hit_box.height;
+					mes.moveback.move_here.height = m.movement.new_pos.height;
+				}
+			}
+			else if ((intersection.left + intersection.width / 2) - (hit_box.left + hit_box.width / 2) < 0)
+			{
 				mes.moveback.move_here.left = hit_box.left - m.movement.new_pos.width;
 				mes.moveback.move_here.width = m.movement.new_pos.width;
 				mes.moveback.move_here.top = m.movement.new_pos.top;
 				mes.moveback.move_here.height = m.movement.new_pos.height;
-				break;
-			case NONE:
-				mes.moveback.move_here = m.movement.old_pos;
+			}
+			else
+			{
+				mes.moveback.move_here.left = hit_box.left + hit_box.width;
+				mes.moveback.move_here.width = m.movement.new_pos.width;
+				mes.moveback.move_here.top = m.movement.new_pos.top;
+				mes.moveback.move_here.height = m.movement.new_pos.height;
 			}
 			m.sender->SendMsg(mes);
 		}

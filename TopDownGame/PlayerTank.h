@@ -2,7 +2,7 @@
 #include "Unit.h"
 class PlayerTank : public Unit
 {
-private: float curr_cd_of_bul, max_cd_of_bul=300.f;
+private: float curr_cd_of_bul=0, max_cd_of_bul=1;
 public:
 	PlayerTank();
 	~PlayerTank();
