@@ -1,13 +1,13 @@
 #pragma once
 #include "Decoration.h"
-class Explosion :
+class Explosion_small :
     public Decoration
 {
 private:
     Explosiontype expose_type;
 public:
-    Explosion(sf::FloatRect pos);
-    ~Explosion();
+    Explosion_small(sf::FloatRect pos);
+    ~Explosion_small();
 
     void Update(sf::Time dt);
 };

@@ -1,6 +1,6 @@
 #include "GameManager.h"
 #include "Bullet.h"
-#include "Explosion.h"
+#include "Explosion_small.h"
 
 GameManager* GameManager::instance = nullptr;
 
@@ -53,7 +53,7 @@ void GameManager::ReadMsgs()
 
 		if (m.type == MSG_EXPLOSION)
 		{
-			AddObject(new Explosion({ m.explode.pos.x,m.explode.pos.y,20,20}));
+			AddObject(new Explosion_small({ m.explode.pos.x,m.explode.pos.y,20,20}));
 			continue;
 		}
 

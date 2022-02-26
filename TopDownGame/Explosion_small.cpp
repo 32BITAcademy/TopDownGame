@@ -1,14 +1,14 @@
-#include "Explosion.h"
+#include "Explosion_small.h"
 #include "GameManager.h"
-Explosion::Explosion(sf::FloatRect pos): Decoration("Explosion1",pos)
+Explosion_small::Explosion_small(sf::FloatRect pos): Decoration("Explosion1",pos)
 {
 }
 
-Explosion::~Explosion()
+Explosion_small::~Explosion_small()
 {
 }
 
-void Explosion::Update(sf::Time dt)
+void Explosion_small::Update(sf::Time dt)
 {
 	if (GetAnimationIteration() > 0)
 	{
