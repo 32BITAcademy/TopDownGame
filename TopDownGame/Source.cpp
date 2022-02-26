@@ -20,14 +20,12 @@ int main()
 
     ResourceManager* rm = ResourceManager::GetInstance();
     rm->LoadAnimations("Resources\\topdownanimations.txt");
-
-    Animation* a = rm->GetAnimationCopy("AI_Tank1");
     
 
     GameManager* gm = GameManager::GetInstance();
     gm->AddObject(new Decoration("background",{0,0,1300,600}));
     gm->AddObject(new PlayerTank());
-    gm->AddObject(new AI_Tank());
+    //gm->AddObject(new AI_Tank());
    //gm->AddObject(new Block("brick_wall", { 0,0,40,30 }));
     for (int i = 0; i < 1300; i += 40)
     {   
@@ -62,23 +60,7 @@ int main()
         gm->ReadMsgs();
 
         window.clear(Color(100,100,100));
-        //gm->Draw(window);
-
-        t += dt.asMilliseconds();
-
-        if (t < 1000)
-            a->Draw(window, 0, 0, 0);
-        else if ( t < 2000)
-            a->Draw(window, 0, 0, 90);
-        else if (t < 3000)
-            a->Draw(window, 0, 0, 180);
-        else if (t < 4000)
-            a->Draw(window, 0, 0, 270);
-        else
-        {
-            a->Draw(window, 0, 0, 270);
-            t = 0;
-        }
+        gm->Draw(window);
 
         window.display();
     }

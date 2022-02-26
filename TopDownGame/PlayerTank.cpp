@@ -6,7 +6,7 @@
 
 using namespace sf;
 
-PlayerTank::PlayerTank() : Unit("GreenTank1", 200.f, { 100,100,150,200 }, 2000.f)
+PlayerTank::PlayerTank() : Unit("GreenTank1", 200.f, { 200,200,150,200 }, 2000.f)
 {
 }
 
@@ -18,20 +18,35 @@ void PlayerTank::Update(sf::Time dt)
 {
 	Vector2f s = { 0.0f, 0.0f };
 	
-	if (Keyboard::isKeyPressed(Keyboard::Up)) s.y += -1.f;
-	if (Keyboard::isKeyPressed(Keyboard::Down)) s.y += 1.f;
-	if (Keyboard::isKeyPressed(Keyboard::Right)) s.x += 1.f;
-	if (Keyboard::isKeyPressed(Keyboard::Left)) s.x += -1.f;
-
-	float speedlen = sqrt(s.x * s.x + s.y * s.y);
-	if (speedlen != 0)
+	if (curr_cd_of_rotation <= 0)
 	{
-		s.x *= maxspeed / speedlen;
-		s.y *= maxspeed / speedlen;
+		if (Keyboard::isKeyPressed(Keyboard::Right)) Rotate(true);
+		if (Keyboard::isKeyPressed(Keyboard::Left)) Rotate(false);
+		curr_cd_of_rotation = max_cd_of_rotation;
 	}
 
-	speed = s;
-	
+	if (Keyboard::isKeyPressed(Keyboard::Up))
+	{
+		switch (direction)
+		{
+		case UP: speed = { 0, -maxspeed }; break;
+		case DOWN: speed = { 0, maxspeed }; break;
+		case RIGHT: speed = { maxspeed, 0 }; break;
+		case LEFT: speed = { -maxspeed, 0 }; break;
+		}
+	}
+	else if (Keyboard::isKeyPressed(Keyboard::Down))
+	{
+		switch (direction)
+		{
+		case UP: speed = { 0, maxspeed }; break;
+		case DOWN: speed = { 0, -maxspeed }; break;
+		case RIGHT: speed = { -maxspeed, 0 }; break;
+		case LEFT: speed = { maxspeed, 0 }; break;
+		}
+	}
+	else
+		speed = { 0,0 };
 	
 	if (Keyboard::isKeyPressed(Keyboard::Space) and curr_cd_of_bul<=0)
 	{
@@ -51,6 +66,7 @@ void PlayerTank::Update(sf::Time dt)
 	if (Keyboard::isKeyPressed(Keyboard::Enter))
 		std::cout << hit_box.left << " " << hit_box.top << std::endl;
 	curr_cd_of_bul -= dt.asSeconds();
+	curr_cd_of_rotation -= dt.asSeconds();
 	Unit::Update(dt);
 }
 

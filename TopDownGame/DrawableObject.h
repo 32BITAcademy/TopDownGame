@@ -15,7 +15,7 @@ protected:
 	sf::FloatRect draw_box;
 	ObjectType type;
 	void _set_dir_angle(float a);
-	Direction direction;
+	Direction direction = RIGHT;
 
 public:
 	DrawableObject() : type(OBJ_UNDEFINED), animation(nullptr), scale({ 1.0f, 1.0f }), draw_box({ 0, 0, 1, 1 }), dir_angle(0) {}
