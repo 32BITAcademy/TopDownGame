@@ -12,6 +12,8 @@ private:
 	static GameManager* instance;
 	GameManager() : objects(), msgs() {}
 	GameManager(const GameManager& gm) { ; }
+
+	bool _debug_drawing_ = true;
 public:
 	~GameManager();
 	static GameManager* GetInstance();

@@ -11,6 +11,11 @@ void DrawableObject::_set_dir_angle(float a)
 	dir_angle = a;
 }
 
+void DrawableObject::DrawBoxes(sf::RenderWindow& win)
+{
+	
+}
+
 DrawableObject::DrawableObject(std::string anim_name, sf::FloatRect db)
 {
 	animation = ResourceManager::GetInstance()->GetAnimationCopy(anim_name);

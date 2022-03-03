@@ -90,4 +90,8 @@ void GameManager::Draw(sf::RenderWindow& window)
 {
 	for (auto x : objects)
 		x->Draw(window);
+
+	if (_debug_drawing_)
+		for (auto x : objects)
+			x->DrawBoxes(window);
 }

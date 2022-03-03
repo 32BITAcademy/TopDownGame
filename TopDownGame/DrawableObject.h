@@ -17,6 +17,7 @@ protected:
 	void _set_dir_angle(float a);
 	Direction direction = RIGHT;
 
+	void DrawBoxes(sf::RenderWindow& win);
 public:
 	DrawableObject() : type(OBJ_UNDEFINED), animation(nullptr), scale({ 1.0f, 1.0f }), draw_box({ 0, 0, 1, 1 }), dir_angle(0) {}
 	DrawableObject(std::string anim_name, sf::FloatRect db);
