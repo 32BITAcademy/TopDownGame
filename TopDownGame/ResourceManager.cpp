@@ -53,7 +53,7 @@ void ResourceManager::LoadAnimations(std::string path_to_animation_file)
 	anim_file.close();
 
 	rapidjson::Document doc;
-	
+
 	rapidjson::ParseResult ok = doc.Parse(file_content.c_str());
 	if (!ok) {
 		fprintf(stderr, "JSON parse error: %s (%u)",
@@ -61,16 +61,22 @@ void ResourceManager::LoadAnimations(std::string path_to_animation_file)
 		exit(EXIT_FAILURE);
 	}
 
-	for (auto itr = doc.MemberBegin(); itr != doc.MemberEnd(); ++itr)
+	auto textures = doc["Textures"].GetArray();
+	for (int i = 0; i < textures.Size(); i++)
+	{
+		LoadNewTexture(textures[i].GetObj()["name"].GetString(), textures[i].GetObj()["filepath"].GetString());
+	}
+
+	auto animations = doc["Animations"].GetObj();
+	for (auto itr = animations.MemberBegin(); itr != animations.MemberEnd(); ++itr)
 	{
 		rapidjson::Value& obj = itr->value.GetObj();
-		std::string name = itr->name.GetString();
 
 		Animation* a = new Animation();
-		LoadNewTexture(name, obj["file"].GetString());
 		a->timeout = obj["timeout"].GetDouble();
 		a->frame_count = obj["framecount"].GetInt();
 		a->frames = new sf::IntRect[a->frame_count];
+		a->texture_name = obj["file"].GetString();
 
 		rapidjson::Value& arr_frames = obj["frames"].GetArray();
 		for (int i = 0; i < a->frame_count; i++)
@@ -84,7 +90,7 @@ void ResourceManager::LoadAnimations(std::string path_to_animation_file)
 			};
 		}
 		
-		AnimationDic[name] = a;
+		AnimationDic[itr->name.GetString()] = a;
 	}
 }
 
@@ -93,7 +99,7 @@ Animation* ResourceManager::GetAnimationCopy(std::string key)
 	Animation *a = new Animation(), *b = AnimationDic[key];
 	a->frame_count = b->frame_count;
 	a->timeout = b->timeout;
-	a->sprite = new sf::Sprite(*TextureDic[key]);
+	a->sprite = new sf::Sprite(*TextureDic[b->texture_name]);
 	
 	a->frames = new sf::IntRect[a->frame_count];
 	for (int i = 0; i < a->frame_count; i++)

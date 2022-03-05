@@ -1,6 +1,12 @@
 {
+"Textures":
+	[
+		{"name": "Tanks", "filepath": "Resources\\images\\tanks.png"},
+		{"name": "Bullets", "filepath": "Resources\\images\\bullet.png"}
+	],
+"Animations" :{
 	"AI_Tank1" : {
-		"file" : "Resources\\images\\tanks.png",
+		"file" : "Tanks",
 		"timeout" : 0.04,
 		"framecount" : 1,
 		"frames" : [
@@ -9,7 +15,7 @@
 	},	
 
 	"GreenTank1" : {
-		"file" : "Resources\\images\\tanks.png",
+		"file" : "Tanks",
 		"timeout" : 0.04,
 		"framecount" : 1,
 		"frames" : [
@@ -17,7 +23,7 @@
 		]
 	},
 	"Bullet" : {
-		"file" : "Resources\\images\\bullet.png",
+		"file" : "Bullets",
 		"timeout" : 0.04,
 		"framecount" : 1,
 		"frames" : [
@@ -252,5 +258,6 @@
 		"frames" : [
 			[0,0,500,500]
 		]
+	}
 	}
 }

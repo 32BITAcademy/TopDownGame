@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <string>
 
 #include "ResourceManager.h"
 
@@ -17,6 +18,8 @@ private:
 	float timeout;
 	float cur_time;
 	int iterations = 0;
+
+	std::string texture_name;
 public:
 
 	~Animation();
