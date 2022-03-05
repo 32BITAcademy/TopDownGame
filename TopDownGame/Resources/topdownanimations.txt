@@ -24,6 +24,14 @@
 			[100,225,660,228]
 		]
 	},	
+	"Rocket" : {
+		"file" : "Resources\\images\\rocket.png",
+		"timeout" : 0.04,
+		"framecount" : 1,
+		"frames" : [
+			[0,0,2105,555]
+		]
+	},	
 	"Explosion1" : {
 		"file" : "Resources\\images\\explosion_1.png",
 		"timeout" : 0.04,

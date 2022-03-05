@@ -63,7 +63,10 @@
     <ClCompile Include="Explosion_big.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="LevelManager.cpp">
+    <ClCompile Include="Rocket.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+     <ClCompile Include="LevelManager.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -117,6 +120,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Explosion_big.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Rocket.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="LevelManager.h">

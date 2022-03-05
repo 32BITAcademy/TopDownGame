@@ -160,6 +160,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
@@ -181,6 +182,7 @@
     <ClInclude Include="MSG.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="Rocket.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
