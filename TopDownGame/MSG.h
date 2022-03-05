@@ -6,8 +6,8 @@ class DrawableObject;
 enum DamageType;
 
 enum Explosiontype{EXP_SMALL,EXP_NORMAL,EXP_BIG};
-enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT,MSG_MOVEBACK, MSG_DEALDMG,MSG_EXPLOSION };
-enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET,OBJ_EXPLOSION };
+enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT,MSG_MOVEBACK, MSG_DEALDMG,MSG_EXPLOSION,MSG_CREATE_OBJECT };
+enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET,OBJ_EXPLOSION,OBJ_AI_TANK };
 enum Direction { NONE, RIGHT, DOWN, LEFT, UP };
 
 struct MSG
@@ -25,7 +25,7 @@ struct MSG
 		} death;
 		struct {
 			sf::Vector2f pos;
-			sf::Vector2f dir;
+			Direction dir;
 			ObjectType who_to_create;
 		} shoot;
 		struct {
@@ -42,6 +42,11 @@ struct MSG
 			sf::Vector2f pos;
 			Explosiontype type_of_explosion;
 		}explode;
+		struct
+		{
+			sf::Vector2f pos;
+			ObjectType who_to_create;
+		}creation;
 	};
 
 	MSG() {}

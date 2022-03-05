@@ -5,7 +5,11 @@
 using namespace sf;
 using namespace std;
 
-AI_Tank::AI_Tank(): time_left_to_move(0), Unit("AI_Tank1", 50.f, { 400, 150 ,150,165 }, 20.f)
+AI_Tank::AI_Tank(): time_left_to_move(0), Unit("AI_Tank1", 50.f, { 400, 150 ,30,33 }, 20.f)
+{
+}
+
+AI_Tank::AI_Tank(sf::Vector2f pos) : time_left_to_move(0), Unit("AI_Tank1", 50.f, {pos.x,pos.y,30,33 }, 20.f)
 {
 }
 

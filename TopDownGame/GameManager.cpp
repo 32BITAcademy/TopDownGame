@@ -1,7 +1,8 @@
 #include "GameManager.h"
 #include "Bullet.h"
 #include "Explosion_small.h"
-
+#include"AI_Tank.h"
+#include"Unit.h"
 GameManager* GameManager::instance = nullptr;
 
 GameManager::~GameManager()
@@ -66,6 +67,11 @@ void GameManager::ReadMsgs()
 		{
 			deathnote.push_back(m.death.who_dies);
 			continue;
+		}
+
+		if (m.type==MSG_CREATE_OBJECT)
+		{
+			AddObject(new AI_Tank(m.creation.pos));
 		}
 
 		for (auto x : objects)
