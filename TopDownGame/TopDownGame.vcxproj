@@ -150,6 +150,7 @@
     <ClCompile Include="Explosion_big.cpp" />
     <ClCompile Include="Explosion_small.cpp" />
     <ClCompile Include="Explosion_normal.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="PlayerTank.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Block.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
@@ -168,6 +170,7 @@
     <ClInclude Include="Explosion_big.h" />
     <ClInclude Include="Explosion_small.h" />
     <ClInclude Include="Explosion_normal.h" />
+    <ClInclude Include="LevelManager.h" />
     <ClInclude Include="PlayerTank.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BasicStructs.h" />
@@ -179,6 +182,7 @@
     <ClInclude Include="MSG.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="Rocket.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>

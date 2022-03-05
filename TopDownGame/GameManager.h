@@ -2,7 +2,7 @@
 #include <list>
 #include "DrawableObject.h"
 #include "MSG.h"
-
+#include"LevelManager.h"
 class GameManager
 {
 private:

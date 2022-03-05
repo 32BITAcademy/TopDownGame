@@ -8,6 +8,7 @@ private:
 
 public:
 	AI_Tank();
+	AI_Tank(sf::Vector2f pos);
 	~AI_Tank();
 
 	void Update(sf::Time dt);

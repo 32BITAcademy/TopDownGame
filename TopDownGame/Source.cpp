@@ -23,7 +23,7 @@ int main()
     
 
     GameManager* gm = GameManager::GetInstance();
-    gm->SetDebugMode(false);
+    gm->SetDebugMode(0);
     gm->AddObject(new Decoration("background",{1300/2,600/2,1300,600}));
     gm->AddObject(new PlayerTank());
     //gm->AddObject(new AI_Tank());
