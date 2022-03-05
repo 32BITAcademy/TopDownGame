@@ -11,15 +11,26 @@ void DrawableObject::_set_dir_angle(float a)
 	dir_angle = a;
 }
 
-void DrawableObject::DrawBoxes(sf::RenderWindow& win)
+void DrawableObject::DebugDrawSpriteBox(sf::RenderWindow& win)
 {
-	
+	sf::RectangleShape shape({ draw_box.width, draw_box.height });
+	shape.setPosition({ draw_box.left - draw_box.width/2, draw_box.top - draw_box.height/2 });
+	shape.setOutlineColor(sf::Color::Blue);
+	shape.setOutlineThickness(3);
+	shape.setFillColor(sf::Color(0, 0, 0, 0));
+	win.draw(shape);
+}
+
+void DrawableObject::DebugDrawHitBox(sf::RenderWindow& win)
+{
+	;
 }
 
 DrawableObject::DrawableObject(std::string anim_name, sf::FloatRect db)
 {
 	animation = ResourceManager::GetInstance()->GetAnimationCopy(anim_name);
 	SetDrawBox(db);
+	dir_angle = 0;
 }
 
 DrawableObject::~DrawableObject()
@@ -30,6 +41,11 @@ DrawableObject::~DrawableObject()
 float DrawableObject::GetDirAngle()
 {
 	return dir_angle;
+}
+
+ObjectType DrawableObject::GetType()
+{
+	return type;
 }
 
 void DrawableObject::InitAnimation(std::string anim_name, sf::FloatRect db)

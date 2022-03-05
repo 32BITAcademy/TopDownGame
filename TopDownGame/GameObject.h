@@ -18,6 +18,9 @@ public:
     virtual ~GameObject();
 
     void Rotate(bool cw);
+    void Rotate(Direction d);
     virtual void Update(sf::Time dt);
     bool CheckCollision(GameObject* go);
+
+    void DebugDrawHitBox(sf::RenderWindow& win);
 };

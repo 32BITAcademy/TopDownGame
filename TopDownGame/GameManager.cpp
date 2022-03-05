@@ -24,6 +24,11 @@ GameManager* GameManager::GetInstance()
 	return GameManager::instance;
 }
 
+void GameManager::SetDebugMode(bool on)
+{
+	_debug_drawing_ = on;
+}
+
 void GameManager::Update(sf::Time dt)
 {
 	for (auto x : objects)
@@ -92,6 +97,11 @@ void GameManager::Draw(sf::RenderWindow& window)
 		x->Draw(window);
 
 	if (_debug_drawing_)
+	{
 		for (auto x : objects)
-			x->DrawBoxes(window);
+		{
+			x->DebugDrawSpriteBox(window);
+			x->DebugDrawHitBox(window);
+		}
+	}
 }

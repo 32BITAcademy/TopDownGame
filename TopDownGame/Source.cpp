@@ -23,19 +23,20 @@ int main()
     
 
     GameManager* gm = GameManager::GetInstance();
-    gm->AddObject(new Decoration("background",{0,0,1300,600}));
+    gm->SetDebugMode(false);
+    gm->AddObject(new Decoration("background",{1300/2,600/2,1300,600}));
     gm->AddObject(new PlayerTank());
     //gm->AddObject(new AI_Tank());
    //gm->AddObject(new Block("brick_wall", { 0,0,40,30 }));
     for (int i = 0; i < 1300; i += 40)
     {   
-        gm->AddObject(new Block("brick_wall", { float(i),0,40,30 }));
-        gm->AddObject(new Block("brick_wall", { float(i),570,40,30 }));
+        gm->AddObject(new Block("brick_wall", { float(i)+20,15,40,30 }));
+        gm->AddObject(new Block("brick_wall", { float(i)+20,585,40,30 }));
     }
     for (int i = 0; i < 600; i += 30)
     {
-        gm->AddObject(new Block("brick_wall", { 0,float(i),40,30 }));
-        gm->AddObject(new Block("brick_wall", { 1260,float(i),40,30 }));
+        gm->AddObject(new Block("brick_wall", { 20,float(i)+15,40,30 }));
+        gm->AddObject(new Block("brick_wall", { 1280,float(i)+15,40,30 }));
     }
     /*gm->AddObject(new DrawableObject("Explosion1", { 200, 20, 128, 512 }));
     gm->AddObject(new DrawableObject("Explosion2", { 500, 20, 256, 256 }));

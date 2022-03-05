@@ -6,8 +6,10 @@
 
 using namespace sf;
 
-PlayerTank::PlayerTank() : Unit("GreenTank1", 200.f, { 200,200,150,200 }, 2000.f)
+PlayerTank::PlayerTank() : Unit("GreenTank1", 200.f, { 200,200,60,80 }, 2000.f)
 {
+	Rotate(RIGHT);
+	std::cout << direction << std::endl;
 }
 
 PlayerTank::~PlayerTank()
@@ -20,9 +22,8 @@ void PlayerTank::Update(sf::Time dt)
 	
 	if (curr_cd_of_rotation <= 0)
 	{
-		if (Keyboard::isKeyPressed(Keyboard::Right)) Rotate(true);
-		if (Keyboard::isKeyPressed(Keyboard::Left)) Rotate(false);
-		curr_cd_of_rotation = max_cd_of_rotation;
+		if (Keyboard::isKeyPressed(Keyboard::Right)) { Rotate(true); curr_cd_of_rotation = max_cd_of_rotation; }
+		if (Keyboard::isKeyPressed(Keyboard::Left)) { Rotate(false); curr_cd_of_rotation = max_cd_of_rotation; }
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::Up))
@@ -64,7 +65,10 @@ void PlayerTank::Update(sf::Time dt)
 		}
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Enter))
-		std::cout << hit_box.left << " " << hit_box.top << std::endl;
+	{
+		//std::cout << hit_box.left << " " << hit_box.top << std::endl;
+		std::cout << direction << std::endl;
+	}
 	curr_cd_of_bul -= dt.asSeconds();
 	curr_cd_of_rotation -= dt.asSeconds();
 	Unit::Update(dt);

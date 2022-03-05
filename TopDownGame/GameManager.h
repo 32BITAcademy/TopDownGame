@@ -13,10 +13,12 @@ private:
 	GameManager() : objects(), msgs() {}
 	GameManager(const GameManager& gm) { ; }
 
-	bool _debug_drawing_ = true;
+	bool _debug_drawing_ = false;
 public:
 	~GameManager();
 	static GameManager* GetInstance();
+
+	void SetDebugMode(bool on = true);
 
 	void Update(sf::Time dt);
 	void ReadMsgs();
