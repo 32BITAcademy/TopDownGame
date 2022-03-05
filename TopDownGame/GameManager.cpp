@@ -1,5 +1,6 @@
 #include "GameManager.h"
 #include "Bullet.h"
+#include "Rocket.h"
 #include "Explosion_small.h"
 
 GameManager* GameManager::instance = nullptr;
@@ -51,6 +52,9 @@ void GameManager::ReadMsgs()
 			{
 			case OBJ_BULLET:
 				AddObject(new Bullet((Unit*)m.sender, 10, DT_STANDARD, m.shoot.dir, m.shoot.pos));
+				break;
+			case OBJ_ROCKET:
+				AddObject(new Rocket({100,100}, (Unit*)m.sender, 10, DT_STANDARD, m.shoot.dir, m.shoot.pos));
 				break;
 			}
 			continue;
