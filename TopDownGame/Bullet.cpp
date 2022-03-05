@@ -56,6 +56,7 @@ void Bullet::SendMsg(MSG& m)
 
 			d.type = MSG_DEATH;
 			d.sender = this;
+			d.sender_type = OBJ_BULLET;
 			d.death.killer = this;
 			d.death.who_dies = this;
 
@@ -80,6 +81,7 @@ void Bullet::SendMsg(MSG& m)
 
 			d.type = MSG_DEATH;
 			d.sender = this;
+			d.sender_type = OBJ_BULLET;
 			d.death.killer = this;
 			d.death.who_dies = this;
 
