@@ -49,13 +49,21 @@ void GameManager::ReadMsgs()
 
 		if (m.type == MSG_SHOOT)
 		{
+				sf::Vector2f speed;
+				switch (m.sender->GetCurrentDir())
+				{
+				case RIGHT: speed = { 10.f, 0.f }; break;
+				case DOWN: speed = { 0.f, 10.f }; break;
+				case LEFT: speed = { -10.f, 0.f }; break;
+				case UP: speed = { 0.f, -10.f }; break;
+				}
 			switch (m.shoot.who_to_create)
 			{
 			case OBJ_BULLET:
-				AddObject(new Bullet((Unit*)m.sender, 10, DT_STANDARD, m.shoot.dir, m.shoot.pos));
+				AddObject(new Bullet((Unit*)m.sender, 10, DT_STANDARD, speed, m.shoot.pos));
 				break;
 			case OBJ_ROCKET:
-				AddObject(new Rocket({100,100}, (Unit*)m.sender, 10, DT_STANDARD, m.shoot.dir, m.shoot.pos));
+				AddObject(new Rocket({100,100}, (Unit*)m.sender, 10, DT_STANDARD,speed, m.shoot.pos));
 				break;
 			}
 			continue;
@@ -90,6 +98,7 @@ void GameManager::ReadMsgs()
 		deathnote.pop_front();
 	}
 }
+
 
 void GameManager::SendMsg(MSG m)
 {

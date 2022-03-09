@@ -32,5 +32,6 @@ public:
 	virtual void DebugDrawHitBox(sf::RenderWindow& win);
 	virtual void Update(sf::Time dt) /*= 0*/;
 	virtual void SendMsg(MSG& m) = 0;
+	Direction GetCurrentDir() { return direction; }
 };
 

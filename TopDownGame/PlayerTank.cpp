@@ -57,7 +57,7 @@ void PlayerTank::Update(sf::Time dt)
 			m.type = MSG_SHOOT;
 			m.sender = this;
 			m.sender_type = type;
-			m.shoot.dir = { speed.x * 3, speed.y * 3 };
+			m.shoot.dir = direction;
 			m.shoot.who_to_create = OBJ_BULLET;
 			m.shoot.pos = { hit_box.left + hit_box.width / 2,hit_box.top + hit_box.height / 2 };
 			GameManager::GetInstance()->SendMsg(m);
