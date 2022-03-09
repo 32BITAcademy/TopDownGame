@@ -12,6 +12,8 @@ enum Direction { NONE, RIGHT, DOWN, LEFT, UP };
 
 struct MSG
 {
+	MSG() { ; }
+	~MSG() { ; }
 	MsgType type;
 	DrawableObject* sender; // nullptr - game manager
 	ObjectType sender_type; // nullptr - game manager
@@ -50,8 +52,4 @@ struct MSG
 			ObjectType who_to_create;
 		}creation;
 	};
-};
-		}explode;
-
-	MSG() {}
 };
