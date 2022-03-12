@@ -2,7 +2,11 @@
 "Textures":
 	[
 		{"name": "Tanks", "filepath": "Resources\\images\\tanks.png"},
-		{"name": "Bullets", "filepath": "Resources\\images\\bullet.png"}
+		{"name": "Bullets", "filepath": "Resources\\images\\bullet.png"},
+		{"name":"Rockets","filepath":"Resources\\images\\rocket.png"},
+		{"name":"Explosions1","filepath":"Resources\\images\\explosion_1.png"},
+		{"name":"Explosions2","filepath":"Resources\\images\\explosion_2.png"},
+		{"name":"Explosions3","filepath":"Resources\\images\\explosion_3.png"}
 	],
 "Animations" :{
 	"AI_Tank1" : {
@@ -39,7 +43,7 @@
 		]
 	},	
 	"Explosion1" : {
-		"file" : "Resources\\images\\explosion_1.png",
+		"file" : "Explosions1",
 		"timeout" : 0.04,
 		"framecount" : 64,
 		"frames" : [
@@ -110,7 +114,7 @@
 		]
 	},
 	"Explosion2" : {
-		"file" : "Resources\\images\\explosion_2.png",
+		"file" : "Explosions2",
 		"timeout" : 0.01,
 		"framecount" : 64,
 		"frames" : [
@@ -181,7 +185,7 @@
 		]
 	},
 	"Explosion3" : {
-		"file" : "Resources\\images\\explosion_3.png",
+		"file" : "Explosions3",
 		"timeout" : 0.01,
 		"framecount" : 64,
 		"frames" : [
