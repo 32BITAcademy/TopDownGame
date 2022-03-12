@@ -2,6 +2,7 @@
 #include"GameManager.h"
 Explosion_normal::Explosion_normal(sf::FloatRect pos) : Decoration("Explosion2", pos)
 {
+	type = OBJ_EXPLOSION;
 }
 
 Explosion_normal::~Explosion_normal()

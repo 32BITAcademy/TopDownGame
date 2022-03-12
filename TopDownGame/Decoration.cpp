@@ -1,6 +1,6 @@
 #include "Decoration.h"
 
-Decoration::Decoration(std::string anim_name, sf::FloatRect pos) : DrawableObject(anim_name, pos)
+Decoration::Decoration(std::string anim_name, sf::FloatRect pos,Direction dir) : DrawableObject(anim_name, pos,dir)
 {
 }
 

@@ -2,6 +2,7 @@
 #include "GameManager.h"
 Explosion_small::Explosion_small(sf::FloatRect pos): Decoration("Explosion1",pos)
 {
+	type = OBJ_EXPLOSION;
 }
 
 Explosion_small::~Explosion_small()

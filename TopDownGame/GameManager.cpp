@@ -49,21 +49,23 @@ void GameManager::ReadMsgs()
 
 		if (m.type == MSG_SHOOT)
 		{
+			Projectile* p;
 				sf::Vector2f speed;
 				switch (m.sender->GetCurrentDir())
 				{
-				case RIGHT: speed = { 10.f, 0.f }; break;
-				case DOWN: speed = { 0.f, 10.f }; break;
-				case LEFT: speed = { -10.f, 0.f }; break;
-				case UP: speed = { 0.f, -10.f }; break;
+				case RIGHT: speed = { 100.f, 0.f }; break;
+				case DOWN: speed = { 0.f, 100.f }; break;
+				case LEFT: speed = { -100.f, 0.f }; break;
+				case UP: speed = { 0.f, -100.f }; break;
 				}
+			
 			switch (m.shoot.who_to_create)
 			{
 			case OBJ_BULLET:
-				AddObject(new Bullet((Unit*)m.sender, 10, DT_STANDARD, speed, m.shoot.pos));
+				AddObject( new Bullet((Unit*)m.sender, 10, DT_STANDARD, speed, m.shoot.pos, m.shoot.dir));
 				break;
 			case OBJ_ROCKET:
-				AddObject(new Rocket({100,100}, (Unit*)m.sender, 10, DT_STANDARD,speed, m.shoot.pos));
+				AddObject(new Rocket({ 100,100 }, (Unit*)m.sender, 10, DT_STANDARD, speed, m.shoot.pos, m.shoot.dir));
 				break;
 			}
 			continue;
@@ -83,7 +85,7 @@ void GameManager::ReadMsgs()
 
 		if (m.type==MSG_CREATE_OBJECT)
 		{
-			AddObject(new AI_Tank(m.creation.pos));
+			AddObject(new AI_Tank(m.creation.pos, m.creation.dir));
 		}
 
 		for (auto x : objects)
@@ -94,6 +96,7 @@ void GameManager::ReadMsgs()
 	while (!deathnote.empty())
 	{
 		objects.remove(deathnote.front());
+		std::cout << deathnote.front()->GetType() << std::endl;
 		delete deathnote.front();
 		deathnote.pop_front();
 	}

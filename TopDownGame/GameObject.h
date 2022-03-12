@@ -1,5 +1,6 @@
 #pragma once
 #include "DrawableObject.h"
+#include<iostream>
 class GameObject : public DrawableObject
 {
 protected:
@@ -9,11 +10,13 @@ protected:
     
 public:
     GameObject() : DrawableObject(), hit_box({ 0,0,1,1 }), speed({ 0,0 }), hp(0), maxhp(0) { }
-    GameObject(std::string anim_name, sf::FloatRect hb, float mhp, sf::Vector2f sp = {0, 0}) : DrawableObject(anim_name,hb), speed(sp), hp(mhp), maxhp(mhp)
+    GameObject(std::string anim_name, sf::FloatRect hb,Direction dir, float mhp, sf::Vector2f sp = {0, 0}) : DrawableObject(anim_name,hb,dir), speed(sp), hp(mhp), maxhp(mhp)
     {
         hit_box = hb;
         hit_box.left -= hb.width / 2;
         hit_box.top -= hb.height / 2;
+       // std::cout << type << std::endl;
+        
     }
     virtual ~GameObject();
 

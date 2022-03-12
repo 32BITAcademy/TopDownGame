@@ -26,11 +26,12 @@ void DrawableObject::DebugDrawHitBox(sf::RenderWindow& win)
 	;
 }
 
-DrawableObject::DrawableObject(std::string anim_name, sf::FloatRect db)
+DrawableObject::DrawableObject(std::string anim_name, sf::FloatRect db,Direction dir)
 {
 	animation = ResourceManager::GetInstance()->GetAnimationCopy(anim_name);
 	SetDrawBox(db);
 	dir_angle = 0;
+	direction = dir;
 }
 
 DrawableObject::~DrawableObject()

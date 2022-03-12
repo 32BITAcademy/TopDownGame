@@ -19,7 +19,7 @@ protected:
 
 public:
 	DrawableObject() : type(OBJ_UNDEFINED), animation(nullptr), scale({ 1.0f, 1.0f }), draw_box({ 0, 0, 1, 1 }), dir_angle(0) {}
-	DrawableObject(std::string anim_name, sf::FloatRect db);
+	DrawableObject(std::string anim_name, sf::FloatRect db,Direction dir=RIGHT);
 	virtual ~DrawableObject();
 	float GetDirAngle();
 	int GetAnimationIteration() { return animation->GetIterat(); };

@@ -1,7 +1,8 @@
 #include "Block.h"
-
-Block::Block(std::string anim_name, sf::FloatRect pos) : GameObject(anim_name, pos,99999.f)
+#include<iostream>
+Block::Block(std::string anim_name, sf::FloatRect pos) : GameObject(anim_name, pos,NONE,99999.f)
 {
+	std::cout<<OBJ_WALL<<std::endl;
 }
 
 Block::~Block()

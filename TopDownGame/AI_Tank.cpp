@@ -5,12 +5,14 @@
 using namespace sf;
 using namespace std;
 
-AI_Tank::AI_Tank(): time_left_to_move(0), Unit("AI_Tank1", 50.f, { 400, 150 ,30,33 }, 20.f)
+AI_Tank::AI_Tank(Direction dir): time_left_to_move(0), Unit("AI_Tank1", 50.f, { 400, 150 ,30,33 },dir, 20.f)
 {
+	type = OBJ_AI_TANK;
 }
 
-AI_Tank::AI_Tank(sf::Vector2f pos) : time_left_to_move(0), Unit("AI_Tank1", 50.f, {pos.x,pos.y,30,33 }, 20.f)
+AI_Tank::AI_Tank(sf::Vector2f pos,Direction dir) : time_left_to_move(0), Unit("AI_Tank1", 50.f, {pos.x,pos.y,30,33 },dir, 20.f)
 {
+	type = OBJ_AI_TANK;
 }
 
 AI_Tank::~AI_Tank()
@@ -19,7 +21,7 @@ AI_Tank::~AI_Tank()
 
 void AI_Tank::Update(sf::Time dt)
 {
-	if (time_left_to_move <= 0)
+	if (cd_of_shooting <= 0)
 	{
 		if (speed.x != 0 or speed.y != 0)
 		{
@@ -32,6 +34,10 @@ void AI_Tank::Update(sf::Time dt)
 			m.shoot.pos = { hit_box.left + hit_box.width / 2,hit_box.top + hit_box.height / 2 };
 			GameManager::GetInstance()->SendMsg(m);
 		}
+		cd_of_shooting = maxcd;
+	}
+	if (time_left_to_move <= 0)
+	{ 
 
 		time_left_to_move = rand() % 2501 + 500;
 		Direction chosen_dir = Direction(rand() % 5);
@@ -43,8 +49,9 @@ void AI_Tank::Update(sf::Time dt)
 		case UP: speed = { 0.f, -maxspeed }; break;
 		case NONE: speed = { 0.f, 0.f }; break;
 		}
+		Rotate(chosen_dir);
 	}
-	
+	cd_of_shooting-= dt.asMilliseconds();
 	time_left_to_move -= dt.asMilliseconds();
 	Unit::Update(dt);
 }

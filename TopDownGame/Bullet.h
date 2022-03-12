@@ -9,7 +9,7 @@ private:
     
 public:
     Bullet() : time_left(5000.f), Projectile() {}
-    Bullet(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, sf::Vector2f pos);
+    Bullet(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, sf::Vector2f pos,Direction dir);
 
     Unit* GetOwner();
 

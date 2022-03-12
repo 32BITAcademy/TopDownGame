@@ -17,8 +17,8 @@ public:
        
     Projectile() :
         GameObject(), owner(NULL), dmg(1), dmgType(DT_STANDARD) {}
-    Projectile(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, std::string anim_name, sf::FloatRect pos) :
-        GameObject(anim_name, pos, 1, speed), owner(Owner), dmg(damage), dmgType(damageType) {}
+    Projectile(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, std::string anim_name, sf::FloatRect pos,Direction dir) :
+        GameObject(anim_name, pos,dir, 1, speed), owner(Owner), dmg(damage), dmgType(damageType) {}
 
     ~Projectile();
 

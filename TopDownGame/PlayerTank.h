@@ -4,7 +4,7 @@ class PlayerTank : public Unit
 {
 private: float curr_cd_of_bul=0, max_cd_of_bul=1, curr_cd_of_rotation=0, max_cd_of_rotation = 0.3f;
 public:
-	PlayerTank();
+	PlayerTank(Direction dir);
 	~PlayerTank();
 
 	void Update(sf::Time dt);
