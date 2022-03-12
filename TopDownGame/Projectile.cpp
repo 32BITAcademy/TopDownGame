@@ -1,5 +1,21 @@
 #include "Projectile.h"
 #include "GameManager.h"
+#include "GameObject.h"
+
+Projectile::Projectile(Unit* Owner, float damage, DamageType damageType, float msp, float timeleft, std::string anim_name, sf::FloatRect pos) :
+	GameObject(anim_name, pos, 1.f, msp), owner(Owner), dmg(damage), dmgType(damageType), time_left(timeleft)
+{
+	sf::Vector2f sp;
+
+	switch (direction) {
+	case UP: sp = { 0, -msp };
+	case RIGHT: sp = { msp, 0 };
+	case DOWN: sp = { 0, msp };
+	case LEFT: sp = { -msp, 0 };
+	}
+
+	speed = sp;
+}
 
 Projectile::~Projectile()
 {
