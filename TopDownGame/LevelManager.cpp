@@ -2,6 +2,9 @@
 #include <iostream>
 #include"GameManager.h"
 using namespace std;
+
+LevelManager* LevelManager::instance = nullptr;
+
 LevelManager* LevelManager::GetInstance()
 {
 	if (LevelManager::instance == nullptr)

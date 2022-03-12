@@ -1,6 +1,6 @@
 #pragma once
-#include "DrawableObject.h"
-#include "MSG.h"
+#include<SFML/Graphics.hpp>
+
 #include<list>
 class LevelManager
 {
