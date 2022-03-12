@@ -10,36 +10,14 @@ Bullet::~Bullet()
 {
 }
 
-Bullet::Bullet(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, sf::Vector2f pos,Direction dir) :
-	time_left(5000), Projectile(Owner, damage, damageType, speed, "Bullet", {pos.x, pos.y, 10, 10},dir)
+Bullet::Bullet(Unit* Owner, float damage, DamageType damageType, float msp, sf::Vector2f pos, Direction dir) :
+	Projectile(Owner, damage, damageType, msp, 5000, "Bullet", {pos.x, pos.y, 10, 10}, dir)
 {
-	switch (dir) {
-	case DOWN: _set_dir_angle(0); break;
-	case LEFT: _set_dir_angle(90); break;
-	case UP: _set_dir_angle(180); break;
-	case RIGHT: _set_dir_angle(270); break;
-	}
-	type = OBJ_BULLET;
-	std::cout << 3<<std::endl;
+
 }
 
 void Bullet::Update(sf::Time dt)
 {
-	if (time_left > 0)
-	{
-		time_left -= dt.asMilliseconds();
-	}
-	else
-	{
-		MSG m;
-		m.type = MSG_DEATH;
-		m.sender = this;
-		m.sender_type = OBJ_BULLET;
-		m.death.killer = this;
-		m.death.who_dies = this;
-		GameManager::GetInstance()->SendMsg(m);
-	}
-
 	Projectile::Update(dt);
 }
 

@@ -66,7 +66,7 @@
     <ClCompile Include="Rocket.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-     <ClCompile Include="LevelManager.cpp">
+    <ClCompile Include="LevelManager.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -130,6 +130,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
 </Project>
