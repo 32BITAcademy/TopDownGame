@@ -13,12 +13,14 @@ protected:
     float dmg;
     Unit* owner;
 
+    float time_left;
+
 public:
        
     Projectile() :
-        GameObject(), owner(NULL), dmg(1), dmgType(DT_STANDARD) {}
-    Projectile(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, std::string anim_name, sf::FloatRect pos) :
-        GameObject(anim_name, pos, 1, speed), owner(Owner), dmg(damage), dmgType(damageType) {}
+        GameObject(), owner(NULL), dmg(1), dmgType(DT_STANDARD), time_left(5000) {}
+    Projectile(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, float timeleft, std::string anim_name, sf::FloatRect pos) :
+        GameObject(anim_name, pos, 1, speed), owner(Owner), dmg(damage), dmgType(damageType), time_left(timeleft) {}
 
     ~Projectile();
 

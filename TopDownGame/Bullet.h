@@ -5,11 +5,9 @@ class Bullet :
     public Projectile
 {
 private:
-    float time_left;
-    
 public:
-    Bullet() : time_left(5000.f), Projectile() {}
-    Bullet(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, sf::Vector2f pos);
+    Bullet() : Projectile() {}
+    Bullet(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, float timeleft, sf::Vector2f pos);
 
     Unit* GetOwner();
 
