@@ -6,7 +6,9 @@
 		{"name":"Rockets","filepath":"Resources\\images\\rocket.png"},
 		{"name":"Explosions1","filepath":"Resources\\images\\explosion_1.png"},
 		{"name":"Explosions2","filepath":"Resources\\images\\explosion_2.png"},
-		{"name":"Explosions3","filepath":"Resources\\images\\explosion_3.png"}
+		{"name":"Explosions3","filepath":"Resources\\images\\explosion_3.png"},
+		{"name":"BrickWall","filepath":"Resources\\images\\brick_wall.png"},
+		{"name":"Background","filepath":"Resources\\images\\background.png"}
 	],
 "Animations" :{
 	"AI_Tank1" : {
@@ -256,7 +258,7 @@
 		]
 	},
 	"brick_wall" : {
-		"file" : "Resources\\images\\brick_wall.png",
+		"file" : "BrickWall",
 		"timeout" : 0.04,
 		"framecount" : 1,
 		"frames" : [
@@ -264,7 +266,7 @@
 		]
 	},
 	"background" : {
-		"file" : "Resources\\images\\background.png",
+		"file" : "Background",
 		"timeout" : 0.04,
 		"framecount" : 1,
 		"frames" : [
