@@ -10,8 +10,8 @@ Bullet::~Bullet()
 {
 }
 
-Bullet::Bullet(Unit* Owner, float damage, DamageType damageType, sf::Vector2f speed, float timeleft, sf::Vector2f pos) :
-	Projectile(Owner, damage, damageType, speed, timeleft, "Bullet", {pos.x, pos.y, 10, 10})
+Bullet::Bullet(Unit* Owner, float damage, DamageType damageType, float msp, sf::Vector2f speed, float timeleft, sf::Vector2f pos) :
+	Projectile(Owner, damage, damageType, msp, speed, timeleft, "Bullet", {pos.x, pos.y, 10, 10})
 {
 }
 

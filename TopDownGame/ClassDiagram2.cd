@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bullet" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAAAAAAAAAAAAAAAAAAAEAAAAAAAUAAA=</HashCode>
+      <FileName>Bullet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AI_Tank" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAEEAA=</HashCode>
+      <FileName>AI_Tank.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Explosion_big" Collapsed="true">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAgAQAAAAAAAAAAAQA=</HashCode>
+      <FileName>Explosion_big.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Explosion_small" Collapsed="true">
+    <Position X="14" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Explosion_small.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Explosion_normal" Collapsed="true">
+    <Position X="16.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAABAAAAAAAAAgAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Explosion_normal.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelManager" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAgAAAADABAAAgAAAoAAAAgggA=</HashCode>
+      <FileName>LevelManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerTank" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEAABgACAAABAAAAAAAAAAAAAAAAAIAAAAAAAEAAA=</HashCode>
+      <FileName>PlayerTank.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Animation" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAYIEAgAAggAAEAAAABAAAAAAAAACAwIAAAE=</HashCode>
+      <FileName>Animation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Block" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAE=</HashCode>
+      <FileName>Block.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decoration" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAA=</HashCode>
+      <FileName>Decoration.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DrawableObject" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYABgAAAAMAIiAABAAAAIICAAARABEAAIAAAAAECAA=</HashCode>
+      <FileName>DrawableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgABAABAAAAABQBAAAAAAACAAABUAAA=</HashCode>
+      <FileName>GameManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAABAAAAAAAAAAAAAEAAAAEAAAARCAAABBAAIAAAA=</HashCode>
+      <FileName>GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projectile" Collapsed="true">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAAAABAgIAAAgAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Projectile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceManager" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEKAAAAAQAAAAAAEAAABABAAQAAAABAAAAIAAA=</HashCode>
+      <FileName>ResourceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rocket" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAEAAE=</HashCode>
+      <FileName>Rocket.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Unit" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Unit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="MSG" Collapsed="true">
+    <Position X="18.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAgAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAQIA=</HashCode>
+      <FileName>MSG.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Explosiontype" Collapsed="true">
+    <Position X="22.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAACIAAAAAAA=</HashCode>
+      <FileName>MSG.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MsgType" Collapsed="true">
+    <Position X="18.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEQAAAAAAAAAAAAAgFQAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MSG.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ObjectType" Collapsed="true">
+    <Position X="20.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oQAAAAAAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAAAAAAk=</HashCode>
+      <FileName>MSG.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Direction" Collapsed="true">
+    <Position X="20.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAQAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>MSG.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DamageType" Collapsed="true">
+    <Position X="18.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAIAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Projectile.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
