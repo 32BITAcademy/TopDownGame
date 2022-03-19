@@ -53,7 +53,7 @@ void PlayerTank::Update(sf::Time dt)
 	
 	if (Keyboard::isKeyPressed(Keyboard::Space) and curr_cd_of_bul<=0)
 	{
-		if (speed.x != 0 or speed.y != 0)
+		if (direction != NONE)
 		{
 			MSG m;
 			m.type = MSG_SHOOT;
