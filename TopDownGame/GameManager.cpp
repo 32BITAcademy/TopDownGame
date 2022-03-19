@@ -47,7 +47,16 @@ void GameManager::ReadMsgs()
 	{
 		m = msgs.front();
 		msgs.pop_front();
-
+		if (m.type = MSG_MOVEMENT)
+		{
+			bool onlyfalse = true;
+			for (auto x : objects)
+				x->SendMsg(m);
+			if (onlyfalse)
+			{
+				((GameObject*)m.sender)->FinishMovement(m);
+			}
+		}
 		if (m.type == MSG_SHOOT)
 		{
 			Projectile* p;

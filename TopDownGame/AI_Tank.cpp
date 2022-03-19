@@ -41,7 +41,7 @@ void AI_Tank::Update(sf::Time dt)
 	if (time_left_to_move <= 0)
 	{ 
 
-		time_left_to_move = rand() % 501 + 500;
+		time_left_to_move = rand() % 2501 + 500;
 		Direction chosen_dir = Direction(rand() % 5);
 		switch (chosen_dir)
 		{
@@ -99,7 +99,7 @@ bool AI_Tank::SendMsg(MSG& m)
 			MSG mes;
 			mes.type = MSG_COLLIDE;
 			mes.sender = this;
-			sf::FloatRect intersection;
+			/*sf::FloatRect intersection;
 			m.movement.new_pos.intersects(hit_box, intersection);
 			if (abs((intersection.top + intersection.height / 2) - (hit_box.top + hit_box.height / 2)) >
 				abs((intersection.left + intersection.width / 2) - (hit_box.left + hit_box.width / 2)))
@@ -128,12 +128,13 @@ bool AI_Tank::SendMsg(MSG& m)
 			}
 			else
 			{
-				mes.collide.move_here.left = hit_box.left + hit_box.width;
-				mes.collide.move_here.width = m.movement.new_pos.width;
-				mes.collide.move_here.top = m.movement.new_pos.top;
-				mes.collide.move_here.height = m.movement.new_pos.height;
-			}
+				mes.moveback.move_here.left = hit_box.left + hit_box.width;
+				mes.moveback.move_here.width = m.movement.new_pos.width;
+				mes.moveback.move_here.top = m.movement.new_pos.top;
+				mes.moveback.move_here.height = m.movement.new_pos.height;
+			}*/
 			m.sender->SendMsg(mes);
+			return true;
 		}
 	}
 	return false;

@@ -6,7 +6,7 @@ class DrawableObject;
 enum DamageType;
 
 enum Explosiontype{EXP_SMALL,EXP_NORMAL,EXP_BIG};
-enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT,MSG_COLLIDE, MSG_DEALDMG,MSG_EXPLOSION, MSG_AREADMG, MSG_CREATE_OBJECT};
+enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT, MSG_COLLIDE, MSG_DEALDMG,MSG_EXPLOSION, MSG_AREADMG, MSG_CREATE_OBJECT};
 enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET,OBJ_EXPLOSION, OBJ_AI_TANK,OBJ_ROCKET, OBJ_PLAYER,OBJ_WALL};
 enum Direction { NONE, RIGHT, DOWN, LEFT, UP };
 
@@ -22,6 +22,10 @@ struct MSG
 			sf::FloatRect old_pos, new_pos;
 			Direction dir;
 		} movement;
+		struct {
+			sf::FloatRect old_pos, new_pos;
+			Direction dir;
+		} movefinish;
 		struct {
 			DrawableObject* who_dies, * killer;
 		} death;

@@ -24,7 +24,7 @@ int main()
     
     LevelManager* lm = LevelManager::GetInstance();
     GameManager* gm = GameManager::GetInstance();
-    lm->SetEnemyCount(7);
+    lm->SetEnemyCount(0);
 
     for (int i=50;i<=100;i+=10)
     lm->AddSpawnPoint({ float(i),float(i) });
@@ -32,8 +32,8 @@ int main()
 
     gm->SetDebugMode(0);
     gm->AddObject(new Decoration("background",{1300/2,600/2,1300,600}));
-    gm->AddObject(new PlayerTank(LEFT));
     gm->AddObject(new AI_Tank(DOWN));
+    gm->AddObject(new PlayerTank(LEFT));
    //gm->AddObject(new Block("brick_wall", { 0,0,40,30 }));
     for (int i = 0; i < 1300; i += 40)
     {   
