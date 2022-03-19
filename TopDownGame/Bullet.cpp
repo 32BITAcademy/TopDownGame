@@ -18,10 +18,17 @@ Bullet::Bullet(Unit* Owner,  sf::Vector2f pos, Direction dir):
 	sf::Vector2f sp;
 
 	switch (direction) {
-	case UP: sp = { 0, -maxspeed };
-	case RIGHT: sp = { maxspeed, 0 };
-	case DOWN: sp = { 0, maxspeed };
-	case LEFT: sp = { -maxspeed, 0 };
+	case UP: sp = { 0, -maxspeed }; break;
+	case RIGHT: sp = { maxspeed, 0 }; break;
+	case DOWN: sp = { 0, maxspeed }; break;
+	case LEFT: sp = { -maxspeed, 0 }; break;
+	}
+
+	switch (direction) {
+	case UP: Rotate(UP); break;
+	case RIGHT: Rotate(RIGHT); break;
+	case DOWN: Rotate(DOWN); break;
+	case LEFT: Rotate(LEFT); break;
 	}
 
 	speed = sp;
