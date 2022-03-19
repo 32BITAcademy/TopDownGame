@@ -12,7 +12,7 @@ void Rocket::Update(sf::Time dt)
 
 bool Rocket::SendMsg(MSG& m)
 {
-	if (m.sender == this) return;
+	if (m.sender == this) return false;
 	if (m.type == MSG_MOVEMENT ||
 		m.type == MSG_COLLIDE)
 		if (CheckCollision((GameObject*)m.sender) && m.sender != owner)

@@ -41,7 +41,7 @@ void Bullet::Update(sf::Time dt)
 
 bool Bullet::SendMsg(MSG& m)
 {
-	if (m.sender == this) return;
+	if (m.sender == this) return false;
 	if (m.type == MSG_MOVEMENT)
 	{
 		if (CheckCollision((GameObject*)m.sender) && m.sender != owner)

@@ -82,5 +82,5 @@ void DrawableObject::Update(sf::Time dt)
 
 bool DrawableObject::SendMsg(MSG& m)
 {
-	;
+	return false;
 }
