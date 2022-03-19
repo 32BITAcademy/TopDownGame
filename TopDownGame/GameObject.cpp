@@ -102,9 +102,10 @@ void GameObject::Update(sf::Time dt)
         m.sender = this;
         m.sender_type = type;
         m.movement.old_pos = hit_box;
+        m.movement.new_pos = hit_box;
 
-        //hit_box.left += speed.x * dt.asSeconds();
-        //hit_box.top += speed.y * dt.asSeconds();
+        m.movement.new_pos.left += speed.x * dt.asSeconds();
+        m.movement.new_pos.top += speed.y * dt.asSeconds();
 
         if (abs(speed.x) > abs(speed.y))
         {
@@ -123,14 +124,9 @@ void GameObject::Update(sf::Time dt)
         else
             m.movement.dir = NONE;
 
-        m.movement.new_pos = hit_box;
-
         GameManager::GetInstance()->SendMsg(m);
 
-       // sf::FloatRect r = GetDrawBox();
-       // r.left = hit_box.left + hit_box.width / 2;
-       // r.top = hit_box.top + hit_box.height / 2;
-        //SetDrawBox(r);
+       
     }
 
 }
@@ -138,6 +134,16 @@ void GameObject::Update(sf::Time dt)
 bool GameObject::CheckCollision(GameObject* go)
 {
     return hit_box.intersects(go->hit_box);
+}
+
+void GameObject::FinishMovement(MSG m)
+{
+     sf::FloatRect r = GetDrawBox();
+     hit_box = m.movement.new_pos;
+     //direction = m.movement.dir;
+     r.left = hit_box.left + hit_box.width / 2;
+     r.top = hit_box.top + hit_box.height / 2;
+     SetDrawBox(r);
 }
 
 void GameObject::DebugDrawHitBox(sf::RenderWindow& win)

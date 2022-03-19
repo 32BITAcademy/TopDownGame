@@ -26,5 +26,6 @@ public:
     virtual void Update(sf::Time dt);
     bool CheckCollision(GameObject* go);
 
+    void FinishMovement(MSG m);
     void DebugDrawHitBox(sf::RenderWindow& win);
 };
