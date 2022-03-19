@@ -8,7 +8,7 @@
 		{"name":"Explosions2","filepath":"Resources\\images\\explosion_2.png"},
 		{"name":"Explosions3","filepath":"Resources\\images\\explosion_3.png"},
 		{"name":"BrickWall","filepath":"Resources\\images\\brick_wall.png"},
-		{"name":"Background","filepath":"Resources\\images\\background.png"}
+		{"name":"Background","filepath":"Resources\\images\\GrassSample.png"}
 	],
 "Animations" :{
 	"AI_Tank1" : {
@@ -270,7 +270,7 @@
 		"timeout" : 0.04,
 		"framecount" : 1,
 		"frames" : [
-			[0,0,500,500]
+			[0,0,704,320]
 		]
 	}
 	}

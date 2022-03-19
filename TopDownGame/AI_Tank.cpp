@@ -25,8 +25,7 @@ void AI_Tank::Update(sf::Time dt)
 {
 	if (cd_of_shooting <= 0)
 	{
-		if (speed.x != 0 or speed.y != 0)
-		{
+		
 			MSG m;
 			m.type = MSG_SHOOT;
 			m.sender = this;
@@ -35,13 +34,12 @@ void AI_Tank::Update(sf::Time dt)
 			m.shoot.who_to_create = OBJ_BULLET;
 			m.shoot.pos = { hit_box.left + hit_box.width / 2,hit_box.top + hit_box.height / 2 };
 			GameManager::GetInstance()->SendMsg(m);
-		}
-		cd_of_shooting = maxcd;
+			cd_of_shooting = maxcd;
 	}
 	if (time_left_to_move <= 0)
 	{ 
 
-		time_left_to_move = rand() % 2501 + 500;
+		time_left_to_move = rand() % 501 + 500;
 		Direction chosen_dir = Direction(rand() % 5);
 		switch (chosen_dir)
 		{
@@ -51,7 +49,9 @@ void AI_Tank::Update(sf::Time dt)
 		case UP: speed = { 0.f, -maxspeed }; break;
 		case NONE: speed = { 0.f, 0.f }; break;
 		}
+		if (chosen_dir!=NONE)
 		Rotate(chosen_dir);
+		
 	}
 	cd_of_shooting-= dt.asMilliseconds();
 	time_left_to_move -= dt.asMilliseconds();
