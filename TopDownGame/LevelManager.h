@@ -1,14 +1,14 @@
 #pragma once
 #include<SFML/Graphics.hpp>
 
-#include<list>
+#include<vector>
 class LevelManager
 {
 private:
 	int count_of_enemies;
-	sf::Time cd_of_resp;
-	sf::Time maxcd_of_resp;
-	std::list<sf::Vector2f> RespPoints;
+	int cd_of_resp=4000;
+	int maxcd_of_resp=4000;
+	std::vector<sf::Vector2f> RespPoints;
 	static LevelManager* instance;
 	LevelManager() :RespPoints(),count_of_enemies(0) { ; }
 	LevelManager(const LevelManager& lm) { ; }

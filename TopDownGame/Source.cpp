@@ -3,6 +3,7 @@
 #include "ResourceManager.h"
 #include "DrawableObject.h"
 #include "GameManager.h"
+#include"LevelManager.h"
 #include "PlayerTank.h"
 #include "AI_Tank.h"
 #include"Block.h"
@@ -21,8 +22,14 @@ int main()
     ResourceManager* rm = ResourceManager::GetInstance();
     rm->LoadAnimations("Resources\\topdownanimations.txt");
     
-
+    LevelManager* lm = LevelManager::GetInstance();
     GameManager* gm = GameManager::GetInstance();
+    lm->SetEnemyCount(7);
+
+    for (int i=50;i<=100;i+=10)
+    lm->AddSpawnPoint({ float(i),float(i) });
+
+
     gm->SetDebugMode(0);
     gm->AddObject(new Decoration("background",{1300/2,600/2,1300,600}));
     gm->AddObject(new PlayerTank(LEFT));

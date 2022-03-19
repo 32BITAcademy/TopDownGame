@@ -35,6 +35,7 @@ void GameManager::Update(sf::Time dt)
 {
 	for (auto x : objects)
 		x->Update(dt);
+	LevelManager::GetInstance()->Update(dt);
 }
 
 void GameManager::ReadMsgs()
@@ -85,7 +86,7 @@ void GameManager::ReadMsgs()
 
 		if (m.type==MSG_CREATE_OBJECT)
 		{
-			AddObject(new AI_Tank(m.creation.pos, m.creation.dir));
+			AddObject(new AI_Tank(/*m.creation.pos,*/ m.creation.dir));
 		}
 
 		for (auto x : objects)
@@ -93,6 +94,8 @@ void GameManager::ReadMsgs()
 	}
 
 	deathnote.unique();
+	for (auto x : deathnote)
+		std::cout << x << std::endl;
 	while (!deathnote.empty())
 	{
 		objects.remove(deathnote.front());
