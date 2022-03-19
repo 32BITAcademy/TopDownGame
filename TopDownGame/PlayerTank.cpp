@@ -78,7 +78,7 @@ void PlayerTank::Update(sf::Time dt)
 
 bool PlayerTank::SendMsg(MSG& m)
 {
-	if (m.sender == this) return;
+	if (m.sender == this) return false;
 	if (m.type == MSG_COLLIDE)
 	{
 		hit_box = m.collide.move_here;
@@ -116,7 +116,7 @@ bool PlayerTank::SendMsg(MSG& m)
 		if (m.sender_type == OBJ_BULLET)
 		{
 			if (((Bullet*)m.sender)->GetOwner() == this)
-				return;
+				return false;
 		}
 		if (m.movement.new_pos.intersects(hit_box))
 		{
