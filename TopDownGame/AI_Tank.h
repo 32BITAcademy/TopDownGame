@@ -6,7 +6,7 @@ class AI_Tank : public Unit
 private:
 	int time_left_to_move;
 	int cd_of_shooting;
-	int maxcd = 500;
+	int maxcd = 2000;
 public:
 	AI_Tank(Direction dir);
 	AI_Tank(sf::Vector2f pos,Direction dir);

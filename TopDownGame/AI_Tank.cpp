@@ -39,7 +39,7 @@ void AI_Tank::Update(sf::Time dt)
 	if (time_left_to_move <= 0)
 	{ 
 
-		time_left_to_move = rand() % 501 + 500;
+		time_left_to_move = rand() % 2501 + 500;
 		Direction chosen_dir = Direction(rand() % 5);
 		switch (chosen_dir)
 		{
