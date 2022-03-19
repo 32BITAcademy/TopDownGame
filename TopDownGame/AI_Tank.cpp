@@ -26,15 +26,15 @@ void AI_Tank::Update(sf::Time dt)
 	if (cd_of_shooting <= 0)
 	{
 		
-			MSG m;
-			m.type = MSG_SHOOT;
-			m.sender = this;
-			m.sender_type = type;
-			m.shoot.dir = direction;
-			m.shoot.who_to_create = OBJ_BULLET;
-			m.shoot.pos = { hit_box.left + hit_box.width / 2,hit_box.top + hit_box.height / 2 };
-			GameManager::GetInstance()->SendMsg(m);
-			cd_of_shooting = maxcd;
+		MSG m;
+		m.type = MSG_SHOOT;
+		m.sender = this;
+		m.sender_type = type;
+		m.shoot.dir = direction;
+		m.shoot.who_to_create = OBJ_BULLET;
+		m.shoot.pos = { hit_box.left + hit_box.width / 2,hit_box.top + hit_box.height / 2 };
+		GameManager::GetInstance()->SendMsg(m);
+		cd_of_shooting = maxcd;
 	}
 	if (time_left_to_move <= 0)
 	{ 
@@ -58,7 +58,7 @@ void AI_Tank::Update(sf::Time dt)
 	Unit::Update(dt);
 }
 
-void AI_Tank::SendMsg(MSG& m)
+bool AI_Tank::SendMsg(MSG& m)
 {
 	if (m.sender == this) return;
 	if (m.type == MSG_MOVEBACK)
@@ -97,7 +97,7 @@ void AI_Tank::SendMsg(MSG& m)
 			MSG mes;
 			mes.type = MSG_MOVEBACK;
 			mes.sender = this;
-			sf::FloatRect intersection;
+			/*sf::FloatRect intersection;
 			m.movement.new_pos.intersects(hit_box, intersection);
 			if (abs((intersection.top + intersection.height / 2) - (hit_box.top + hit_box.height / 2)) >
 				abs((intersection.left + intersection.width / 2) - (hit_box.left + hit_box.width / 2)))
@@ -130,8 +130,10 @@ void AI_Tank::SendMsg(MSG& m)
 				mes.moveback.move_here.width = m.movement.new_pos.width;
 				mes.moveback.move_here.top = m.movement.new_pos.top;
 				mes.moveback.move_here.height = m.movement.new_pos.height;
-			}
+			}*/
 			m.sender->SendMsg(mes);
+			return true;
 		}
 	}
+	return false;
 }

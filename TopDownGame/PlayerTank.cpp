@@ -76,7 +76,7 @@ void PlayerTank::Update(sf::Time dt)
 	Unit::Update(dt);
 }
 
-void PlayerTank::SendMsg(MSG& m)
+bool PlayerTank::SendMsg(MSG& m)
 {
 	if (m.sender == this) return;
 	if (m.type == MSG_MOVEBACK)
@@ -123,7 +123,7 @@ void PlayerTank::SendMsg(MSG& m)
 			MSG mes;
 			mes.type = MSG_MOVEBACK;
 			mes.sender = this;
-			sf::FloatRect intersection;
+			/*sf::FloatRect intersection;
 			m.movement.new_pos.intersects(hit_box, intersection);
 			if (abs((intersection.top + intersection.height / 2) - (hit_box.top + hit_box.height / 2)) >
 				abs((intersection.left + intersection.width / 2) - (hit_box.left + hit_box.width / 2)))
@@ -156,9 +156,10 @@ void PlayerTank::SendMsg(MSG& m)
 				mes.moveback.move_here.width = m.movement.new_pos.width;
 				mes.moveback.move_here.top = m.movement.new_pos.top;
 				mes.moveback.move_here.height = m.movement.new_pos.height;
-			}
+			}*/
 			m.sender->SendMsg(mes);
+			return true;
 		}
 	}
-
+	return false;
 }

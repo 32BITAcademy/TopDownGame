@@ -103,8 +103,8 @@ void GameObject::Update(sf::Time dt)
         m.sender_type = type;
         m.movement.old_pos = hit_box;
 
-        hit_box.left += speed.x * dt.asSeconds();
-        hit_box.top += speed.y * dt.asSeconds();
+        //hit_box.left += speed.x * dt.asSeconds();
+        //hit_box.top += speed.y * dt.asSeconds();
 
         if (abs(speed.x) > abs(speed.y))
         {
@@ -127,11 +127,12 @@ void GameObject::Update(sf::Time dt)
 
         GameManager::GetInstance()->SendMsg(m);
 
-        sf::FloatRect r = GetDrawBox();
-        r.left = hit_box.left + hit_box.width / 2;
-        r.top = hit_box.top + hit_box.height / 2;
-        SetDrawBox(r);
+       // sf::FloatRect r = GetDrawBox();
+       // r.left = hit_box.left + hit_box.width / 2;
+       // r.top = hit_box.top + hit_box.height / 2;
+        //SetDrawBox(r);
     }
+
 }
 
 bool GameObject::CheckCollision(GameObject* go)
