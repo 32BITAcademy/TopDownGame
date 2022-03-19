@@ -9,7 +9,7 @@ class Block :
 public:
     Block(std::string anim_name,sf::FloatRect pos);
     ~Block();
-    void SendMsg(MSG& m);
+    bool SendMsg(MSG& m);
     void Update(sf::Time dt);
 };
 

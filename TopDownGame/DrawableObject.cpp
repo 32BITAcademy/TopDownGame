@@ -80,7 +80,7 @@ void DrawableObject::Update(sf::Time dt)
 	UpdateAnim(dt);
 }
 
-void DrawableObject::SendMsg(MSG& m)
+bool DrawableObject::SendMsg(MSG& m)
 {
 	;
 }

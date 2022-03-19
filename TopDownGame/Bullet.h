@@ -14,6 +14,6 @@ public:
     ~Bullet();
 
     void Update(sf::Time dt);
-    void SendMsg(MSG& m);
+    bool SendMsg(MSG& m);
 };
 

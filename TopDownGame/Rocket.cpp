@@ -10,11 +10,11 @@ void Rocket::Update(sf::Time dt)
 	Projectile::Update(dt);
 }
 
-void Rocket::SendMsg(MSG& m)
+bool Rocket::SendMsg(MSG& m)
 {
 	if (m.sender == this) return;
 	if (m.type == MSG_MOVEMENT ||
-		m.type == MSG_MOVEBACK)
+		m.type == MSG_COLLIDE)
 		if (CheckCollision((GameObject*)m.sender) && m.sender != owner)
 		{
 			MSG d;
@@ -36,4 +36,5 @@ void Rocket::SendMsg(MSG& m)
 			
 			GameManager::GetInstance()->SendMsg(d);
 		}
+	return false;
 }

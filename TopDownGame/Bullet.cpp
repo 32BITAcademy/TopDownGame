@@ -39,7 +39,7 @@ void Bullet::Update(sf::Time dt)
 	Projectile::Update(dt);
 }
 
-void Bullet::SendMsg(MSG& m)
+bool Bullet::SendMsg(MSG& m)
 {
 	if (m.sender == this) return;
 	if (m.type == MSG_MOVEMENT)
@@ -66,7 +66,7 @@ void Bullet::SendMsg(MSG& m)
 			GameManager::GetInstance()->SendMsg(d);
 		}
 	}
-	if (m.type == MSG_MOVEBACK)
+	if (m.type == MSG_COLLIDE)
 	{
 		if (CheckCollision((GameObject*)m.sender) && m.sender != owner)
 		{
@@ -99,4 +99,5 @@ void Bullet::SendMsg(MSG& m)
 			GameManager::GetInstance()->SendMsg(d);
 		}
 	}
+	return false;
 }
