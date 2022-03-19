@@ -9,7 +9,8 @@ void Decoration::Update(sf::Time dt)
 	DrawableObject::Update(dt);
 }
 
-void Decoration::SendMsg(MSG& m)
+bool Decoration::SendMsg(MSG& m)
 {
-	if (m.sender == this) return;
+	if (m.sender == this) return false;
+	return false;
 }
