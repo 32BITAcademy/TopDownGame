@@ -8,7 +8,7 @@ public:
 	~PlayerTank();
 
 	void Update(sf::Time dt);
-	void SendMsg(MSG& m);
+	bool SendMsg(MSG& m);
 };
 
 //TODO: Debug hit_box, draw_box
