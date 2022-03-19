@@ -25,7 +25,8 @@ void AI_Tank::Update(sf::Time dt)
 {
 	if (cd_of_shooting <= 0)
 	{
-		
+		if (direction != NONE)
+		{
 			MSG m;
 			m.type = MSG_SHOOT;
 			m.sender = this;
@@ -35,6 +36,7 @@ void AI_Tank::Update(sf::Time dt)
 			m.shoot.pos = { hit_box.left + hit_box.width / 2,hit_box.top + hit_box.height / 2 };
 			GameManager::GetInstance()->SendMsg(m);
 			cd_of_shooting = maxcd;
+		}
 	}
 	if (time_left_to_move <= 0)
 	{ 
