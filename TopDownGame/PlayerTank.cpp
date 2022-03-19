@@ -6,11 +6,12 @@
 
 using namespace sf;
 
-PlayerTank::PlayerTank(Direction dir) : Unit("GreenTank1", 200.f, { 200,200,60,80 },dir, 2000.f)
+PlayerTank::PlayerTank(Direction dir) : Unit("GreenTank1", { 200,200,60,80 },dir, 2000.f)
 {
 	Rotate(dir);
 	std::cout << direction << std::endl;
 	type = OBJ_PLAYER;
+	maxspeed = 150;
 }
 
 PlayerTank::~PlayerTank()

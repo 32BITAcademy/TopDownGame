@@ -23,9 +23,9 @@ int main()
     
 
     GameManager* gm = GameManager::GetInstance();
-    gm->SetDebugMode(0);
+    gm->SetDebugMode(1);
     gm->AddObject(new Decoration("background",{1300/2,600/2,1300,600}));
-    gm->AddObject(new PlayerTank(UP));
+    gm->AddObject(new PlayerTank(LEFT));
     gm->AddObject(new AI_Tank(DOWN));
    //gm->AddObject(new Block("brick_wall", { 0,0,40,30 }));
     for (int i = 0; i < 1300; i += 40)

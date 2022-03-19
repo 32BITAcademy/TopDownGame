@@ -14,7 +14,7 @@ public:
        
     Projectile() :
         GameObject(), owner(NULL), time_left(5000) {}
-    Projectile(Unit* Owner, float msp, float timeleft, std::string anim_name, sf::FloatRect pos, Direction dir) ;
+    Projectile(Unit* Owner, std::string anim_name, sf::FloatRect pos, Direction dir) ;
 
     ~Projectile();
 

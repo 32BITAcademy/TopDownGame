@@ -2,16 +2,16 @@
 #include "GameManager.h"
 #include "GameObject.h"
 
-Projectile::Projectile(Unit* Owner, float msp, float timeleft, std::string anim_name, sf::FloatRect pos, Direction dir) :
-	GameObject(anim_name, pos, 1.f, msp), owner(Owner), time_left(timeleft)
+Projectile::Projectile(Unit* Owner, std::string anim_name, sf::FloatRect pos, Direction dir) :
+	GameObject(anim_name, pos, dir,1.f), owner(Owner)
 {
 	sf::Vector2f sp;
 
 	switch (direction) {
-	case UP: sp = { 0, -msp };
-	case RIGHT: sp = { msp, 0 };
-	case DOWN: sp = { 0, msp };
-	case LEFT: sp = { -msp, 0 };
+	case UP: sp = { 0, -maxspeed };
+	case RIGHT: sp = { maxspeed, 0 };
+	case DOWN: sp = { 0, maxspeed };
+	case LEFT: sp = { -maxspeed, 0 };
 	}
 
 	speed = sp;

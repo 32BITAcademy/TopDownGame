@@ -10,10 +10,21 @@ Bullet::~Bullet()
 {
 }
 
-Bullet::Bullet(Unit* Owner, float msp, sf::Vector2f pos, Direction dir) :
-	Projectile(Owner, msp, 5000, "Bullet", {pos.x, pos.y, 10, 10}, dir)
+Bullet::Bullet(Unit* Owner,  sf::Vector2f pos, Direction dir):
+	Projectile(Owner, "Bullet", {pos.x, pos.y, 10, 10}, dir)
 {
+	time_left = 5000;
+	maxspeed = 500;
+	sf::Vector2f sp;
 
+	switch (direction) {
+	case UP: sp = { 0, -maxspeed };
+	case RIGHT: sp = { maxspeed, 0 };
+	case DOWN: sp = { 0, maxspeed };
+	case LEFT: sp = { -maxspeed, 0 };
+	}
+
+	speed = sp;
 }
 
 void Bullet::Update(sf::Time dt)

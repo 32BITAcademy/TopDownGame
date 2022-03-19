@@ -5,13 +5,15 @@
 using namespace sf;
 using namespace std;
 
-AI_Tank::AI_Tank(Direction dir): time_left_to_move(0), Unit("AI_Tank1", 50.f, { 400, 150 ,30,33 },dir, 20.f)
+AI_Tank::AI_Tank(Direction dir): time_left_to_move(0), Unit("AI_Tank1", { 400, 150 ,30,33 },dir, 20.f)
 {
 	type = OBJ_AI_TANK;
+	maxspeed = 100;
 }
 
-AI_Tank::AI_Tank(sf::Vector2f pos,Direction dir) : time_left_to_move(0), Unit("AI_Tank1", 50.f, {pos.x,pos.y,30,33 },dir, 20.f)
+AI_Tank::AI_Tank(sf::Vector2f pos,Direction dir) : time_left_to_move(0), Unit("AI_Tank1", { pos.x,pos.y,30,33 },dir, 20.f)
 {
+	maxspeed = 100;
 	type = OBJ_AI_TANK;
 }
 
