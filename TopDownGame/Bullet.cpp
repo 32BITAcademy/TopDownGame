@@ -10,8 +10,8 @@ Bullet::~Bullet()
 {
 }
 
-Bullet::Bullet(Unit* Owner, float damage, DamageType damageType, float msp, sf::Vector2f pos, Direction dir) :
-	Projectile(Owner, damage, damageType, msp, 5000, "Bullet", {pos.x, pos.y, 10, 10}, dir)
+Bullet::Bullet(Unit* Owner, float msp, sf::Vector2f pos, Direction dir) :
+	Projectile(Owner, msp, 5000, "Bullet", {pos.x, pos.y, 10, 10}, dir)
 {
 
 }
@@ -33,8 +33,8 @@ void Bullet::SendMsg(MSG& m)
 			d.type = MSG_DEALDMG;
 			d.sender = this;
 			d.sender_type = OBJ_BULLET;
-			d.dealdmg.dmg = dmg;
-			d.dealdmg.dmg_type = dmgType;
+			d.dealdmg.dmg = 10;
+			d.dealdmg.dmg_type = DT_STANDARD;
 			d.dealdmg.who_deals_dmg = (DrawableObject*)owner;
 			d.dealdmg.who_takes_dmg = m.sender;
 
@@ -58,8 +58,8 @@ void Bullet::SendMsg(MSG& m)
 			d.type = MSG_DEALDMG;
 			d.sender = this;
 			d.sender_type = OBJ_BULLET;
-			d.dealdmg.dmg = dmg;
-			d.dealdmg.dmg_type = dmgType;
+			d.dealdmg.dmg = 10;
+			d.dealdmg.dmg_type = DT_STANDARD
 			d.dealdmg.who_deals_dmg = (DrawableObject*)owner;
 			d.dealdmg.who_takes_dmg = m.sender;
 

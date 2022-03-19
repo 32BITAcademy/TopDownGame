@@ -2,8 +2,8 @@
 #include "GameManager.h"
 #include "GameObject.h"
 
-Projectile::Projectile(Unit* Owner, float damage, DamageType damageType, float msp, float timeleft, std::string anim_name, sf::FloatRect pos) :
-	GameObject(anim_name, pos, 1.f, msp), owner(Owner), dmg(damage), dmgType(damageType), time_left(timeleft)
+Projectile::Projectile(Unit* Owner, float msp, float timeleft, std::string anim_name, sf::FloatRect pos, Direction dir) :
+	GameObject(anim_name, pos, 1.f, msp), owner(Owner), time_left(timeleft)
 {
 	sf::Vector2f sp;
 

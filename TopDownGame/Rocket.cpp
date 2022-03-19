@@ -24,7 +24,7 @@ void Rocket::SendMsg(MSG& m)
 			d.sender_type = OBJ_ROCKET;
 			d.areadmg.pos = { hit_box.left - area.x / 2 + hit_box.width / 2, hit_box.top - area.y / 2 + hit_box.height / 2,
 				area.x, area.y };
-			d.areadmg.dmg = dmg;
+			d.areadmg.dmg = 10;
 
 			GameManager::GetInstance()->SendMsg(d);
 

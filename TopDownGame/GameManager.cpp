@@ -62,10 +62,10 @@ void GameManager::ReadMsgs()
 			switch (m.shoot.who_to_create)
 			{
 			case OBJ_BULLET:
-				AddObject( new Bullet((Unit*)m.sender, 10, DT_STANDARD, speed, m.shoot.pos, m.shoot.dir));
+				AddObject( new Bullet((Unit*)m.sender, speed, m.shoot.pos, m.shoot.dir));
 				break;
 			case OBJ_ROCKET:
-				AddObject(new Rocket({ 100,100 }, (Unit*)m.sender, 10, DT_STANDARD, speed, m.shoot.pos, m.shoot.dir));
+				AddObject(new Rocket({ 100,100 }, (Unit*)m.sender, speed, m.shoot.pos, m.shoot.dir));
 				break;
 			}
 			continue;
