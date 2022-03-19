@@ -54,7 +54,7 @@ void GameManager::ReadMsgs()
 				x->SendMsg(m);
 			if (onlyfalse)
 			{
-				m.sender->FinishMovement(m);
+				((GameObject*)m.sender)->FinishMovement(m);
 			}
 		}
 		if (m.type == MSG_SHOOT)
