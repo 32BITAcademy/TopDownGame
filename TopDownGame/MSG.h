@@ -32,7 +32,6 @@ struct MSG
 		} shoot;
 		struct {
 			float dmg;
-			DamageType dmg_type;
 			DrawableObject* who_deals_dmg, * who_takes_dmg;
 		} dealdmg;
 		struct {

@@ -34,7 +34,6 @@ void Bullet::SendMsg(MSG& m)
 			d.sender = this;
 			d.sender_type = OBJ_BULLET;
 			d.dealdmg.dmg = 10;
-			d.dealdmg.dmg_type = DT_STANDARD;
 			d.dealdmg.who_deals_dmg = (DrawableObject*)owner;
 			d.dealdmg.who_takes_dmg = m.sender;
 
@@ -59,7 +58,6 @@ void Bullet::SendMsg(MSG& m)
 			d.sender = this;
 			d.sender_type = OBJ_BULLET;
 			d.dealdmg.dmg = 10;
-			d.dealdmg.dmg_type = DT_STANDARD
 			d.dealdmg.who_deals_dmg = (DrawableObject*)owner;
 			d.dealdmg.who_takes_dmg = m.sender;
 

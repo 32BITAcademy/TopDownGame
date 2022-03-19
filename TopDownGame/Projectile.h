@@ -1,8 +1,6 @@
 #pragma once
 #include "Unit.h"
 
-enum DamageType { DT_STANDARD, DT_FIRE, DT_AREA };
-
 class Projectile :
     public GameObject
 {
