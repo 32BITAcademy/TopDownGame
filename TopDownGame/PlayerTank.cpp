@@ -79,10 +79,6 @@ void PlayerTank::Update(sf::Time dt)
 bool PlayerTank::SendMsg(MSG& m)
 {
 	if (m.sender == this) return false;
-	if (m.type == MSG_COLLIDE)
-	{
-		hit_box = m.collide.move_here;
-	}
 	if (m.type == MSG_DEALDMG)
 	{
 		if (m.dealdmg.who_takes_dmg == this)

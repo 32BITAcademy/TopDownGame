@@ -63,10 +63,6 @@ void AI_Tank::Update(sf::Time dt)
 bool AI_Tank::SendMsg(MSG& m)
 {
 	if (m.sender == this) return false;
-	if (m.type == MSG_COLLIDE)
-	{
-		hit_box = m.collide.move_here;
-	}
 	if (m.type == MSG_DEALDMG)
 	{
 		if (m.dealdmg.who_takes_dmg == this)
