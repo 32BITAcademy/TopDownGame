@@ -9,6 +9,7 @@
 #include"Block.h"
 #include "Bullet.h"
 #include "Decoration.h"
+#include "Mine.h"
 using namespace sf;
 
 int main()
@@ -45,6 +46,9 @@ int main()
         gm->AddObject(new Block("brick_wall", { 20,float(i)+15,40,30 }));
         gm->AddObject(new Block("brick_wall", { 1280,float(i)+15,40,30 }));
     }
+
+    gm->AddObject(new Mine({ 700,300,100,100 }));
+
     /*gm->AddObject(new DrawableObject("Explosion1", { 200, 20, 128, 512 }));
     gm->AddObject(new DrawableObject("Explosion2", { 500, 20, 256, 256 }));
     gm->AddObject(new DrawableObject("Explosion3", { 800, 20, 128, 128 }));*/
