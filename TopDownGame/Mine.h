@@ -9,6 +9,8 @@ public:
 
     Mine(sf::FloatRect pos) : dmg(30.f), Unit("Mine", pos, UP, -1) {}
 
+    ~Mine() {}
+
     void Update(sf::Time dt);
     bool SendMsg(MSG& m);
 };
