@@ -2,6 +2,8 @@
 #include "Bullet.h"
 #include "Rocket.h"
 #include "Explosion_small.h"
+#include "Explosion_normal.h"
+#include "Explosion_big.h"
 #include"AI_Tank.h"
 #include"Unit.h"
 GameManager* GameManager::instance = nullptr;
@@ -86,7 +88,14 @@ void GameManager::ReadMsgs()
 
 		if (m.type == MSG_EXPLOSION)
 		{
-			AddObject(new Explosion_small({ m.explode.pos.x,m.explode.pos.y,20,20}));
+			switch (m.explode.type_of_explosion) {
+			case EXP_SMALL:
+				AddObject(new Explosion_small({ m.explode.pos.x,m.explode.pos.y,20,20 })); break;
+			case EXP_NORMAL:
+				AddObject(new Explosion_normal({ m.explode.pos.x,m.explode.pos.y,50,50 })); break;
+			case EXP_BIG:
+				AddObject(new Explosion_big({ m.explode.pos.x,m.explode.pos.y,100,100 })); break;
+			}
 			continue;
 		}
 

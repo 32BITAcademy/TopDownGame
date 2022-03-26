@@ -10,6 +10,7 @@
 #include "Bullet.h"
 #include "Decoration.h"
 #include "RepairKit.h"
+#include "Mine.h"
 using namespace sf;
 
 int main()
@@ -39,14 +40,17 @@ int main()
    //gm->AddObject(new Block("brick_wall", { 0,0,40,30 }));
     for (int i = 0; i < 1300; i += 40)
     {   
-        gm->AddObject(new Block("brick_wall", { float(i)+20,15,40,30 }));
-        gm->AddObject(new Block("brick_wall", { float(i)+20,585,40,30 }));
+        gm->AddObject(new Block({ float(i)+20,15,40,30 }));
+        gm->AddObject(new Block({ float(i)+20,585,40,30 }));
     }
     for (int i = 0; i < 600; i += 30)
     {
-        gm->AddObject(new Block("brick_wall", { 20,float(i)+15,40,30 }));
-        gm->AddObject(new Block("brick_wall", { 1280,float(i)+15,40,30 }));
+        gm->AddObject(new Block({ 20,float(i)+15,40,30 }));
+        gm->AddObject(new Block({ 1280,float(i)+15,40,30 }));
     }
+
+    gm->AddObject(new Mine({ 700,300,40,40 }));
+
     /*gm->AddObject(new DrawableObject("Explosion1", { 200, 20, 128, 512 }));
     gm->AddObject(new DrawableObject("Explosion2", { 500, 20, 256, 256 }));
     gm->AddObject(new DrawableObject("Explosion3", { 800, 20, 128, 128 }));*/

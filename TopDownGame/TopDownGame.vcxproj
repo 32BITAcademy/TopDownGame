@@ -151,6 +151,7 @@
     <ClCompile Include="Explosion_small.cpp" />
     <ClCompile Include="Explosion_normal.cpp" />
     <ClCompile Include="LevelManager.cpp" />
+    <ClCompile Include="Mine.cpp" />
     <ClCompile Include="PlayerTank.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Block.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Explosion_small.h" />
     <ClInclude Include="Explosion_normal.h" />
     <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="Mine.h" />
     <ClInclude Include="PlayerTank.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BasicStructs.h" />

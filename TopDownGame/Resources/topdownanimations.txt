@@ -9,6 +9,7 @@
 		{"name":"Explosions3","filepath":"Resources\\images\\explosion_3.png"},
 		{"name":"BrickWall","filepath":"Resources\\images\\brick_wall.png"},
 		{"name":"Background","filepath":"Resources\\images\\GrassSample.png"},
+		{"name":"Mine","filepath":"Resources\\images\\mine.png"},
 		{"name":"RepairKit","filepath":"Resources\\images\\RepairKit.png"}
 	],
 "Animations" :{
@@ -38,13 +39,21 @@
 		]
 	},	
 	"Rocket" : {
-		"file" : "Resources\\images\\rocket.png",
+		"file" : "Rockets",
 		"timeout" : 0.04,
 		"framecount" : 1,
 		"frames" : [
 			[0,0,2105,555]
 		]
 	},
+	"Mine" : {
+		"file" : "Mine",
+		"timeout" : 0.04,
+		"framecount" : 1,
+		"frames" : [
+			[0,0,250,250]
+		]
+	},		
 	"RepairKit" : {
 		"file" : "RepairKit",
 		"timeout" : 0.04,
