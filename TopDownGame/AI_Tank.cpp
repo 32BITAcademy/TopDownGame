@@ -1,6 +1,7 @@
 #include "AI_Tank.h"
 #include "GameManager.h"
 #include <iostream>
+#include "Bullet.h"
 
 using namespace sf;
 using namespace std;
@@ -90,6 +91,11 @@ bool AI_Tank::SendMsg(MSG& m)
 	}
 	if (m.type == MSG_MOVEMENT)
 	{
+		if (m.sender_type == OBJ_BULLET)
+		{
+			if (((Bullet*)m.sender)->GetOwner() == this)
+				return false;
+		}
 		if (m.movement.new_pos.intersects(hit_box))
 		{
 			MSG mes;

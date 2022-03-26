@@ -13,6 +13,7 @@ Bullet::~Bullet()
 Bullet::Bullet(Unit* Owner,  sf::Vector2f pos, Direction dir):
 	Projectile(Owner, "Bullet", {pos.x, pos.y, 10, 10}, dir)
 {
+	type = OBJ_BULLET;
 	time_left = 5000;
 	maxspeed = 500;
 	sf::Vector2f sp;

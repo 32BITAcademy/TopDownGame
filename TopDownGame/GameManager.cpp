@@ -51,7 +51,10 @@ void GameManager::ReadMsgs()
 		{
 			bool onlyfalse = true;
 			for (auto x : objects)
-				x->SendMsg(m);
+			{
+				if (x->SendMsg(m))
+					onlyfalse = false;
+			}
 			if (onlyfalse)
 			{
 				((GameObject*)m.sender)->FinishMovement(m);
