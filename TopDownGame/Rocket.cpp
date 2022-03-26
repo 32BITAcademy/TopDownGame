@@ -7,15 +7,17 @@ Rocket::~Rocket()
 
 void Rocket::Update(sf::Time dt)
 {
+
 	Projectile::Update(dt);
 }
 
 bool Rocket::SendMsg(MSG& m)
 {
+	if (!alive) return;
 	if (m.sender == this) return false;
 	if (m.type == MSG_MOVEMENT ||
 		m.type == MSG_COLLIDE)
-		if (CheckCollision((GameObject*)m.sender) && m.sender != owner)
+		if (m.sender != owner)
 		{
 			MSG d;
 
@@ -33,7 +35,8 @@ bool Rocket::SendMsg(MSG& m)
 			d.sender_type = OBJ_ROCKET;
 			d.death.killer = this;
 			d.death.who_dies = this;
-			
+			alive = false;
+
 			GameManager::GetInstance()->SendMsg(d);
 		}
 	return false;

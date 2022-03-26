@@ -9,6 +9,7 @@ using namespace sf;
 PlayerTank::PlayerTank(Direction dir) : Unit("GreenTank1", { 200,200,60,80 },dir, 100.f)
 {
 	Rotate(dir);
+	std::cout << hp << " hp" << std::endl;
 	//std::cout << direction << std::endl;
 	type = OBJ_PLAYER;
 	maxspeed = 150;
@@ -70,6 +71,7 @@ void PlayerTank::Update(sf::Time dt)
 	{
 		//std::cout << hit_box.left << " " << hit_box.top << std::endl;
 		//std::cout << direction << std::endl;
+		std::cout << hp << " hp" << std::endl;
 	}
 	curr_cd_of_bul -= dt.asSeconds();
 	curr_cd_of_rotation -= dt.asSeconds();
@@ -84,6 +86,8 @@ bool PlayerTank::SendMsg(MSG& m)
 		if (m.dealdmg.who_takes_dmg == this)
 		{
 			hp -= m.dealdmg.dmg;
+
+			std::cout << hp << " hp" << std::endl;
 
 			if (hp <= 0)
 			{
@@ -100,9 +104,6 @@ bool PlayerTank::SendMsg(MSG& m)
 				m1.explode.pos.y = hit_box.top;
 				m1.explode.type_of_explosion = EXP_BIG;
 				GameManager::GetInstance()->SendMsg(m1);
-
-
-
 			}
 		}
 
