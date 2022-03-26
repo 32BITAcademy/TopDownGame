@@ -84,7 +84,8 @@ bool Block::SendMsg(MSG& m)
 			case NONE:
 				mes.moveback.move_here = m.movement.old_pos;
 			}*/
-				m.sender->SendMsg(mes);
+			m.sender->SendMsg(mes);
+			return true;
 		}
 	}
 	return false;
