@@ -69,7 +69,7 @@ bool Bullet::SendMsg(MSG& m)
 	}
 	if (m.type == MSG_COLLIDE)
 	{
-		if (CheckCollision((GameObject*)m.sender) && m.sender != owner)
+		if (m.sender != owner)
 		{
 			MSG d;
 
