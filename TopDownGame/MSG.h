@@ -6,8 +6,8 @@ class DrawableObject;
 enum DamageType;
 
 enum Explosiontype{EXP_SMALL,EXP_NORMAL,EXP_BIG};
-enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT, MSG_COLLIDE, MSG_DEALDMG,MSG_EXPLOSION, MSG_AREADMG, MSG_CREATE_OBJECT};
-enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET,OBJ_EXPLOSION, OBJ_AI_TANK,OBJ_ROCKET, OBJ_PLAYER,OBJ_WALL};
+enum MsgType { MSG_MOVEMENT, MSG_DEATH, MSG_SHOOT, MSG_COLLIDE, MSG_DEALDMG,MSG_EXPLOSION, MSG_AREADMG, MSG_CREATE_OBJECT,MSG_HEAL};
+enum ObjectType { OBJ_UNDEFINED, OBJ_MANAGER, OBJ_GAMEOBJECT, OBJ_BULLET,OBJ_EXPLOSION, OBJ_AI_TANK,OBJ_ROCKET, OBJ_PLAYER,OBJ_WALL,OBJ_REPAIRKIT};
 enum Direction { NONE, RIGHT, DOWN, LEFT, UP };
 
 struct MSG
@@ -55,5 +55,10 @@ struct MSG
 			ObjectType who_to_create;
 			Direction dir;
 		}creation;
+		struct
+		{
+			float heal_amount;
+			DrawableObject* who_heals, * who_take_heal;
+		}heal;
 	};
 };

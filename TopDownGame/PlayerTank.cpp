@@ -160,5 +160,20 @@ bool PlayerTank::SendMsg(MSG& m)
 			return true;
 		}
 	}
+	if (m.type == MSG_HEAL)
+	{
+		if (m.heal.who_take_heal == this)
+		{
+			hp += m.heal.heal_amount;
+
+
+			if (hp > maxhp)
+			{
+				hp = maxhp;
+			}
+			
+			std::cout << hp << " hp" << std::endl;
+		}
+	}
 	return false;
 }

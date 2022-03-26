@@ -8,7 +8,8 @@
 		{"name":"Explosions2","filepath":"Resources\\images\\explosion_2.png"},
 		{"name":"Explosions3","filepath":"Resources\\images\\explosion_3.png"},
 		{"name":"BrickWall","filepath":"Resources\\images\\brick_wall.png"},
-		{"name":"Background","filepath":"Resources\\images\\GrassSample.png"}
+		{"name":"Background","filepath":"Resources\\images\\GrassSample.png"},
+		{"name":"RepairKit","filepath":"Resources\\images\\RepairKit.png"}
 	],
 "Animations" :{
 	"AI_Tank1" : {
@@ -42,6 +43,14 @@
 		"framecount" : 1,
 		"frames" : [
 			[0,0,2105,555]
+		]
+	},
+	"RepairKit" : {
+		"file" : "RepairKit",
+		"timeout" : 0.04,
+		"framecount" : 1,
+		"frames" : [
+			[0,0,512,512]
 		]
 	},	
 	"Explosion1" : {

@@ -9,6 +9,7 @@
 #include"Block.h"
 #include "Bullet.h"
 #include "Decoration.h"
+#include "RepairKit.h"
 using namespace sf;
 
 int main()
@@ -34,6 +35,7 @@ int main()
     gm->AddObject(new Decoration("background",{1300/2,600/2,1300,600}));
     gm->AddObject(new AI_Tank(DOWN));
     gm->AddObject(new PlayerTank(LEFT));
+    gm->AddObject(new RepairKit({600,300}));
    //gm->AddObject(new Block("brick_wall", { 0,0,40,30 }));
     for (int i = 0; i < 1300; i += 40)
     {   
