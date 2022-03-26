@@ -38,7 +38,7 @@
 		]
 	},	
 	"Rocket" : {
-		"file" : "Resources\\images\\rocket.png",
+		"file" : "Rockets",
 		"timeout" : 0.04,
 		"framecount" : 1,
 		"frames" : [

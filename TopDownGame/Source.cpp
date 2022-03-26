@@ -47,7 +47,7 @@ int main()
         gm->AddObject(new Block({ 1280,float(i)+15,40,30 }));
     }
 
-    gm->AddObject(new Mine({ 700,300,100,100 }));
+    gm->AddObject(new Mine({ 700,300,40,40 }));
 
     /*gm->AddObject(new DrawableObject("Explosion1", { 200, 20, 128, 512 }));
     gm->AddObject(new DrawableObject("Explosion2", { 500, 20, 256, 256 }));
