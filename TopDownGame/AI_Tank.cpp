@@ -72,6 +72,7 @@ bool AI_Tank::SendMsg(MSG& m)
 			
 			if (hp <= 0)
 			{
+				alive = false;
 				MSG m1;
 				m1.type = MSG_DEATH;
 				m1.sender = this;

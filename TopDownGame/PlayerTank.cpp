@@ -70,6 +70,7 @@ void PlayerTank::Update(sf::Time dt)
 	{
 		//std::cout << hit_box.left << " " << hit_box.top << std::endl;
 		//std::cout << direction << std::endl;
+		std::cout << "hp: " << hp << std::endl;
 	}
 	curr_cd_of_bul -= dt.asSeconds();
 	curr_cd_of_rotation -= dt.asSeconds();
@@ -87,6 +88,7 @@ bool PlayerTank::SendMsg(MSG& m)
 
 			if (hp <= 0)
 			{
+				alive = false;
 				MSG m1;
 				m1.type = MSG_DEATH;
 				m1.sender = this;
@@ -104,6 +106,7 @@ bool PlayerTank::SendMsg(MSG& m)
 
 
 			}
+			std::cout<< "hp: " << hp << std::endl;
 		}
 
 	}
