@@ -67,7 +67,7 @@ void GameObject::Rotate(bool cw)
     case RIGHT: _set_dir_angle(270); break;
     }
 
-    std::cout << direction << std::endl;
+    //std::cout << direction << std::endl;
 
     sf::FloatRect old_box = hit_box;
     sf::Vector2f c = { old_box.left + old_box.width / 2, old_box.top + old_box.height / 2 };

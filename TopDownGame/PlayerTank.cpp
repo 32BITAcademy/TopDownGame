@@ -9,7 +9,7 @@ using namespace sf;
 PlayerTank::PlayerTank(Direction dir) : Unit("GreenTank1", { 200,200,60,80 },dir, 100.f)
 {
 	Rotate(dir);
-	std::cout << direction << std::endl;
+	//std::cout << direction << std::endl;
 	type = OBJ_PLAYER;
 	maxspeed = 150;
 }
@@ -69,7 +69,7 @@ void PlayerTank::Update(sf::Time dt)
 	if (Keyboard::isKeyPressed(Keyboard::Enter))
 	{
 		//std::cout << hit_box.left << " " << hit_box.top << std::endl;
-		std::cout << direction << std::endl;
+		//std::cout << direction << std::endl;
 	}
 	curr_cd_of_bul -= dt.asSeconds();
 	curr_cd_of_rotation -= dt.asSeconds();

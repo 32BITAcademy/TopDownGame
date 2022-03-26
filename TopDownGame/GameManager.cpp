@@ -106,12 +106,12 @@ void GameManager::ReadMsgs()
 	}
 
 	deathnote.unique();
-	for (auto x : deathnote)
-		std::cout << x << std::endl;
+	//for (auto x : deathnote)
+		//std::cout << x << std::endl;
 	while (!deathnote.empty())
 	{
 		objects.remove(deathnote.front());
-		std::cout << deathnote.front()->GetType() << std::endl;
+		//std::cout << deathnote.front()->GetType() << std::endl;
 		delete deathnote.front();
 		deathnote.pop_front();
 	}
