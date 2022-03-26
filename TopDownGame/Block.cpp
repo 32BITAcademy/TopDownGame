@@ -3,6 +3,7 @@
 Block::Block(std::string anim_name, sf::FloatRect pos) : GameObject(anim_name, pos,NONE,99999.f)
 {
 	std::cout<<OBJ_WALL<<std::endl;
+	type = OBJ_WALL;
 }
 
 Block::~Block()
