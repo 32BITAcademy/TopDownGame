@@ -12,7 +12,7 @@ protected:
 
 public:
     GameObject() : DrawableObject(), hit_box({ 0,0,1,1 }), speed({ 0,0 }), hp(0), maxhp(0), maxspeed(0), alive(true) { }
-    GameObject(std::string anim_name, sf::FloatRect hb, Direction dir, float mhp, sf::Vector2f sp = {0, 0}) : DrawableObject(anim_name,hb, dir), speed(sp), hp(mhp), maxhp(mhp), maxspeed(0)
+    GameObject(std::string anim_name, sf::FloatRect hb, Direction dir, float mhp, sf::Vector2f sp = {0, 0}) : DrawableObject(anim_name,hb, dir), speed(sp), hp(mhp), maxhp(mhp), maxspeed(0), alive(true)
     {
         hit_box = hb;
         hit_box.left -= hb.width / 2;

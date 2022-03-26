@@ -13,7 +13,7 @@ void Rocket::Update(sf::Time dt)
 
 bool Rocket::SendMsg(MSG& m)
 {
-	if (!alive) return;
+	if (!alive) return false;
 	if (m.sender == this) return false;
 	if (m.type == MSG_MOVEMENT ||
 		m.type == MSG_COLLIDE)
