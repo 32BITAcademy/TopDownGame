@@ -37,11 +37,13 @@ Bullet::Bullet(Unit* Owner,  sf::Vector2f pos, Direction dir):
 
 void Bullet::Update(sf::Time dt)
 {
+	if (!alive) return;
 	Projectile::Update(dt);
 }
 
 bool Bullet::SendMsg(MSG& m)
 {
+	if (!alive) return false;
 	if (m.sender == this) return false;
 	if (m.type == MSG_MOVEMENT)
 	{
@@ -63,6 +65,7 @@ bool Bullet::SendMsg(MSG& m)
 			d.sender_type = OBJ_BULLET;
 			d.death.killer = this;
 			d.death.who_dies = this;
+			alive = false;
 
 			GameManager::GetInstance()->SendMsg(d);
 		}
@@ -87,6 +90,7 @@ bool Bullet::SendMsg(MSG& m)
 			d.sender_type = OBJ_BULLET;
 			d.death.killer = this;
 			d.death.who_dies = this;
+			alive = false;
 
 			GameManager::GetInstance()->SendMsg(d);
 			
