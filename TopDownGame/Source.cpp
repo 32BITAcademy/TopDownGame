@@ -38,13 +38,13 @@ int main()
    //gm->AddObject(new Block("brick_wall", { 0,0,40,30 }));
     for (int i = 0; i < 1300; i += 40)
     {   
-        gm->AddObject(new Block("brick_wall", { float(i)+20,15,40,30 }));
-        gm->AddObject(new Block("brick_wall", { float(i)+20,585,40,30 }));
+        gm->AddObject(new Block({ float(i)+20,15,40,30 }));
+        gm->AddObject(new Block({ float(i)+20,585,40,30 }));
     }
     for (int i = 0; i < 600; i += 30)
     {
-        gm->AddObject(new Block("brick_wall", { 20,float(i)+15,40,30 }));
-        gm->AddObject(new Block("brick_wall", { 1280,float(i)+15,40,30 }));
+        gm->AddObject(new Block({ 20,float(i)+15,40,30 }));
+        gm->AddObject(new Block({ 1280,float(i)+15,40,30 }));
     }
 
     gm->AddObject(new Mine({ 700,300,100,100 }));

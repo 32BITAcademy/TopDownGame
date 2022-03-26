@@ -1,6 +1,6 @@
 #include "Block.h"
 #include<iostream>
-Block::Block(std::string anim_name, sf::FloatRect pos) : GameObject(anim_name, pos,NONE,99999.f)
+Block::Block(sf::FloatRect pos) : GameObject("brick_wall", pos, NONE, 99999.f)
 {
 	//std::cout<<OBJ_WALL<<std::endl;
 	type = OBJ_WALL;
