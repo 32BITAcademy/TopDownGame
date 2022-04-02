@@ -106,7 +106,6 @@ bool PlayerTank::SendMsg(MSG& m)
 				m1.explode.type_of_explosion = EXP_BIG;
 				GameManager::GetInstance()->SendMsg(m1);
 			}
-			std::cout<< "hp: " << hp << std::endl;
 		}
 
 	}
